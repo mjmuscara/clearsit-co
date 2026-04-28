@@ -1,0 +1,1325 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clearsite — Modern Websites for Local Businesses</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --accent: #6EE7B7;
+    --accent2: #3B82F6;
+    --dark: #080C14;
+    --dark2: #0D1421;
+    --card: #111827;
+    --border: rgba(255,255,255,0.07);
+  }
+  * { box-sizing: border-box; }
+  html { font-family: 'DM Sans', sans-serif; background: var(--dark); color: #e2e8f0; }
+  h1,h2,h3,h4,h5 { font-family: 'Syne', sans-serif; }
+
+  .gradient-text {
+    background: linear-gradient(135deg, #6EE7B7 0%, #3B82F6 50%, #A78BFA 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  }
+  .gradient-text-gold {
+    background: linear-gradient(135deg, #F59E0B 0%, #EF4444 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  }
+
+  .hero-bg {
+    background: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(59,130,246,0.18) 0%, transparent 70%),
+                radial-gradient(ellipse 60% 40% at 80% 60%, rgba(110,231,183,0.10) 0%, transparent 70%),
+                radial-gradient(ellipse 50% 40% at 10% 70%, rgba(167,139,250,0.08) 0%, transparent 70%),
+                #080C14;
+  }
+
+  .card-glass {
+    background: rgba(17,24,39,0.7);
+    border: 1px solid rgba(255,255,255,0.07);
+    backdrop-filter: blur(12px);
+    transition: all 0.3s ease;
+  }
+  .card-glass:hover {
+    border-color: rgba(110,231,183,0.3);
+    transform: translateY(-4px);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+  }
+
+  .btn-primary {
+    background: linear-gradient(135deg, #6EE7B7, #3B82F6);
+    color: #080C14;
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    transition: all 0.3s ease;
+  }
+  .btn-primary:hover { opacity: 0.9; transform: translateY(-2px); box-shadow: 0 12px 40px rgba(110,231,183,0.3); }
+
+  .btn-outline {
+    border: 1px solid rgba(255,255,255,0.2);
+    color: #e2e8f0;
+    font-family: 'Syne', sans-serif;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+  .btn-outline:hover { border-color: rgba(110,231,183,0.5); color: #6EE7B7; transform: translateY(-2px); }
+
+  .section-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #6EE7B7;
+  }
+
+  .noise-bg::before {
+    content: '';
+    position: absolute; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none; z-index: 0;
+  }
+
+  .laptop-screen { border-radius: 8px; overflow: hidden; }
+
+  .service-icon { width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; }
+
+  .star { color: #F59E0B; }
+
+  .portfolio-card:hover .portfolio-overlay { opacity: 1; }
+  .portfolio-overlay { opacity: 0; transition: opacity 0.3s ease; }
+
+  .price-card-featured {
+    background: linear-gradient(145deg, #0f2232, #0d1f2e);
+    border: 1px solid rgba(110,231,183,0.4);
+    position: relative;
+    overflow: hidden;
+  }
+  .price-card-featured::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 2px;
+    background: linear-gradient(90deg, #6EE7B7, #3B82F6, #A78BFA);
+  }
+
+  .faq-item { border-bottom: 1px solid rgba(255,255,255,0.07); }
+  .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, opacity 0.3s ease; opacity: 0; }
+  .faq-answer.open { max-height: 200px; opacity: 1; }
+  .faq-toggle { transition: transform 0.3s ease; }
+  .faq-toggle.open { transform: rotate(45deg); }
+
+  .nav-link { transition: color 0.2s; }
+  .nav-link:hover { color: #6EE7B7; }
+
+  .stat-number { font-family: 'Syne', sans-serif; }
+
+  .grid-lines {
+    background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  .testimonial-card { user-select: none; }
+
+  .process-line::after {
+    content: ''; position: absolute; top: 50%; right: -50%; width: 100%; height: 1px;
+    background: linear-gradient(90deg, rgba(110,231,183,0.4), transparent);
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-12px); }
+  }
+  @keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 0 20px rgba(110,231,183,0.2); }
+    50% { box-shadow: 0 0 40px rgba(110,231,183,0.4); }
+  }
+  @keyframes fade-in-up {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes slide-in-left {
+    from { opacity: 0; transform: translateX(-30px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+  @keyframes gradient-shift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  .float-anim { animation: float 6s ease-in-out infinite; }
+  .float-anim-delay { animation: float 6s ease-in-out 2s infinite; }
+  .pulse-anim { animation: pulse-glow 3s ease-in-out infinite; }
+
+  .animate-on-scroll { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .animate-on-scroll.visible { opacity: 1; transform: translateY(0); }
+
+  .carousel-track { display: flex; gap: 24px; animation: scroll-x 30s linear infinite; }
+  .carousel-track:hover { animation-play-state: paused; }
+  @keyframes scroll-x {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  .tag { display: inline-flex; align-items: center; gap: 6px; background: rgba(110,231,183,0.1); color: #6EE7B7; border: 1px solid rgba(110,231,183,0.2); border-radius: 100px; padding: 4px 14px; font-size: 0.75rem; font-weight: 500; font-family: 'DM Sans', sans-serif; letter-spacing: 0.05em; }
+
+  .mobile-menu { display: none; }
+  .mobile-menu.open { display: flex; }
+
+  input, textarea, select {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: #e2e8f0;
+    transition: border-color 0.2s;
+  }
+  input:focus, textarea:focus, select:focus {
+    outline: none;
+    border-color: rgba(110,231,183,0.5);
+    box-shadow: 0 0 0 3px rgba(110,231,183,0.08);
+  }
+  input::placeholder, textarea::placeholder { color: rgba(255,255,255,0.25); }
+  select option { background: #111827; }
+
+  .scroll-progress {
+    position: fixed; top: 0; left: 0; height: 2px; z-index: 1000;
+    background: linear-gradient(90deg, #6EE7B7, #3B82F6);
+    transition: width 0.1s;
+  }
+
+  .metric-badge {
+    background: rgba(110,231,183,0.1);
+    border: 1px solid rgba(110,231,183,0.2);
+    color: #6EE7B7;
+    border-radius: 8px;
+    padding: 6px 12px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    font-family: 'Syne', sans-serif;
+  }
+</style>
+</head>
+<body class="overflow-x-hidden">
+
+<!-- Scroll Progress Bar -->
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- NAVIGATION -->
+<nav class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" id="navbar">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <a href="#" class="flex items-center gap-2">
+      <div class="w-8 h-8 rounded-lg flex items-center justify-center" style="background: linear-gradient(135deg,#6EE7B7,#3B82F6)">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="2" y="2" width="5" height="5" rx="1" fill="#080C14"/><rect x="9" y="2" width="5" height="5" rx="1" fill="#080C14" opacity="0.6"/><rect x="2" y="9" width="5" height="5" rx="1" fill="#080C14" opacity="0.6"/><rect x="9" y="9" width="5" height="5" rx="1" fill="#080C14"/></svg>
+      </div>
+      <span class="font-bold text-lg text-white" style="font-family:'Syne',sans-serif">Clear<span class="gradient-text">site</span></span>
+    </a>
+    <div class="hidden md:flex items-center gap-8">
+      <a href="#services" class="nav-link text-sm text-slate-300">Services</a>
+      <a href="#work" class="nav-link text-sm text-slate-300">Work</a>
+      <a href="#pricing" class="nav-link text-sm text-slate-300">Pricing</a>
+      <a href="#process" class="nav-link text-sm text-slate-300">Process</a>
+      <a href="#faq" class="nav-link text-sm text-slate-300">FAQ</a>
+      <a href="#contact" class="btn-primary px-5 py-2 rounded-lg text-sm">Get a Free Quote</a>
+    </div>
+    <button class="md:hidden text-white" id="mobileMenuBtn">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+    </button>
+  </div>
+  <div class="mobile-menu md:hidden flex-col px-6 pb-4 gap-3" id="mobileMenu" style="background:rgba(8,12,20,0.98);border-bottom:1px solid rgba(255,255,255,0.07)">
+    <a href="#services" class="text-slate-300 py-2">Services</a>
+    <a href="#work" class="text-slate-300 py-2">Work</a>
+    <a href="#pricing" class="text-slate-300 py-2">Pricing</a>
+    <a href="#process" class="text-slate-300 py-2">Process</a>
+    <a href="#faq" class="text-slate-300 py-2">FAQ</a>
+    <a href="#contact" class="btn-primary px-5 py-3 rounded-lg text-sm text-center mt-2">Get a Free Quote</a>
+  </div>
+</nav>
+
+<!-- HERO SECTION -->
+<section class="hero-bg relative min-h-screen flex items-center pt-24 pb-16 overflow-hidden grid-lines noise-bg">
+  <!-- Decorative orbs -->
+  <div class="absolute top-32 right-16 w-72 h-72 rounded-full opacity-10 blur-3xl" style="background:radial-gradient(circle,#3B82F6,transparent)"></div>
+  <div class="absolute bottom-32 left-8 w-64 h-64 rounded-full opacity-8 blur-3xl" style="background:radial-gradient(circle,#6EE7B7,transparent)"></div>
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] opacity-5 blur-3xl" style="background:radial-gradient(ellipse,#A78BFA,transparent)"></div>
+
+  <div class="max-w-7xl mx-auto px-6 relative z-10">
+    <div class="grid lg:grid-cols-2 gap-16 items-center">
+      <!-- Left Content -->
+      <div>
+        <div class="tag mb-6">
+          <span style="width:6px;height:6px;border-radius:50%;background:#6EE7B7;display:inline-block"></span>
+          Now Taking New Clients for 2026
+        </div>
+        <h1 class="text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-tight mb-6" style="letter-spacing:-0.03em">
+          Modern Websites<br>That <span class="gradient-text">Grow Local</span><br>Businesses
+        </h1>
+        <p class="text-lg text-slate-400 mb-10 max-w-lg leading-relaxed">
+          We design and build premium, conversion-focused websites for local businesses — the kind that turn visitors into paying customers. From restaurants to law firms, we make you look elite.
+        </p>
+        <div class="flex flex-wrap gap-4 mb-12">
+          <a href="#contact" class="btn-primary px-8 py-4 rounded-xl text-base inline-flex items-center gap-2">
+            Get a Free Quote
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </a>
+          <a href="#work" class="btn-outline px-8 py-4 rounded-xl text-base inline-flex items-center gap-2">
+            View Our Work
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 3l5 5-5 5M3 8h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </a>
+        </div>
+        <!-- Trust signals -->
+        <div class="flex flex-wrap items-center gap-6">
+          <div class="flex items-center gap-2">
+            <div class="flex">
+              <span class="star text-lg">★★★★★</span>
+            </div>
+            <span class="text-sm text-slate-400">Rated 4.9/5 by clients</span>
+          </div>
+          <div class="w-px h-4" style="background:rgba(255,255,255,0.15)"></div>
+          <div class="flex items-center gap-2 text-sm text-slate-400">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1L10 6h5l-4 3 1.5 5L8 11l-4.5 3L5 9 1 6h5z" stroke="#6EE7B7" stroke-width="1.2" fill="none"/></svg>
+            50+ websites launched
+          </div>
+          <div class="w-px h-4" style="background:rgba(255,255,255,0.15)"></div>
+          <div class="flex items-center gap-2 text-sm text-slate-400">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="#6EE7B7" stroke-width="1.2"/><path d="M8 5v3l2 2" stroke="#6EE7B7" stroke-width="1.2" stroke-linecap="round"/></svg>
+            1–2 week delivery
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Laptop Mockup -->
+      <div class="relative flex justify-center lg:justify-end float-anim">
+        <!-- Main Laptop -->
+        <div class="relative" style="perspective:1200px">
+          <div class="relative" style="transform:rotateY(-8deg) rotateX(4deg);transform-style:preserve-3d">
+            <!-- Laptop body -->
+            <div class="rounded-2xl p-2 pulse-anim" style="background:linear-gradient(145deg,#1e293b,#0f172a);border:1px solid rgba(255,255,255,0.12);box-shadow:0 40px 80px rgba(0,0,0,0.6)">
+              <!-- Screen -->
+              <div class="laptop-screen w-[360px] lg:w-[440px]">
+                <!-- Browser chrome -->
+                <div class="flex items-center gap-2 px-4 py-2" style="background:#1a2332;border-bottom:1px solid rgba(255,255,255,0.06)">
+                  <div class="flex gap-1.5">
+                    <div class="w-3 h-3 rounded-full" style="background:#EF4444"></div>
+                    <div class="w-3 h-3 rounded-full" style="background:#F59E0B"></div>
+                    <div class="w-3 h-3 rounded-full" style="background:#22C55E"></div>
+                  </div>
+                  <div class="flex-1 mx-3 bg-slate-800 rounded text-xs text-slate-500 px-3 py-1 text-center">bellavista.com</div>
+                </div>
+                <!-- Website preview -->
+                <div style="background:linear-gradient(160deg,#1a0a00,#2d1a00);height:260px;position:relative;overflow:hidden">
+                  <div class="absolute inset-0 flex flex-col justify-center px-8" style="background:linear-gradient(to bottom,rgba(0,0,0,0.2),rgba(0,0,0,0.6))">
+                    <div style="color:#D97706;font-family:'Syne',sans-serif;font-size:10px;letter-spacing:0.2em;margin-bottom:8px">FINE DINING</div>
+                    <div style="font-family:'Syne',sans-serif;font-size:22px;font-weight:800;color:white;line-height:1.2;margin-bottom:8px">Bella Vista<br><span style="color:#F59E0B">Italian</span> Restaurant</div>
+                    <div style="color:rgba(255,255,255,0.65);font-size:9px;margin-bottom:16px;line-height:1.6">Award-winning Italian cuisine in the heart<br>of downtown. Reserve your table today.</div>
+                    <div style="background:linear-gradient(90deg,#D97706,#F59E0B);color:white;padding:7px 16px;border-radius:6px;font-size:9px;font-weight:700;width:fit-content;font-family:'Syne',sans-serif">Book a Table</div>
+                  </div>
+                  <!-- Decorative element -->
+                  <div class="absolute right-4 bottom-4 opacity-30">
+                    <svg width="60" height="60" viewBox="0 0 60 60" fill="none"><circle cx="30" cy="30" r="28" stroke="#F59E0B" stroke-width="0.5"/><circle cx="30" cy="30" r="20" stroke="#F59E0B" stroke-width="0.5"/></svg>
+                  </div>
+                </div>
+                <!-- Nav strip preview -->
+                <div class="flex items-center justify-between px-6 py-3" style="background:#12100e">
+                  <span style="color:#D97706;font-family:'Syne',sans-serif;font-size:10px;font-weight:700">BELLA VISTA</span>
+                  <div class="flex gap-4">
+                    <span style="color:rgba(255,255,255,0.4);font-size:8px">Menu</span>
+                    <span style="color:rgba(255,255,255,0.4);font-size:8px">About</span>
+                    <span style="color:rgba(255,255,255,0.4);font-size:8px">Reserve</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Laptop base -->
+            <div class="h-3 mx-4 rounded-b-lg" style="background:linear-gradient(to bottom,#1e293b,#0f172a);border:1px solid rgba(255,255,255,0.08);border-top:none"></div>
+            <div class="h-1 mx-2 rounded-b-xl" style="background:#0f172a"></div>
+          </div>
+        </div>
+
+        <!-- Floating phone mockup -->
+        <div class="absolute -right-6 -bottom-8 float-anim-delay" style="transform:rotateY(6deg)">
+          <div class="rounded-2xl p-1.5" style="background:linear-gradient(145deg,#1e293b,#0f172a);border:1px solid rgba(255,255,255,0.12);width:100px;box-shadow:0 20px 40px rgba(0,0,0,0.5)">
+            <div class="rounded-xl overflow-hidden">
+              <div class="h-1.5 w-8 mx-auto my-1 rounded-full" style="background:rgba(255,255,255,0.1)"></div>
+              <div style="background:linear-gradient(160deg,#1a0a00,#2d1a00);height:160px;padding:10px">
+                <div style="color:#D97706;font-size:6px;font-weight:700;font-family:'Syne',sans-serif;letter-spacing:0.1em;margin-bottom:4px">FINE DINING</div>
+                <div style="color:white;font-size:11px;font-weight:800;font-family:'Syne',sans-serif;line-height:1.2;margin-bottom:6px">Bella<br>Vista</div>
+                <div style="color:rgba(255,255,255,0.5);font-size:5px;margin-bottom:8px;line-height:1.5">Italian cuisine<br>downtown</div>
+                <div style="background:#D97706;color:white;padding:4px 8px;border-radius:4px;font-size:5px;font-weight:700;font-family:'Syne',sans-serif">Reserve →</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Floating stat badge -->
+        <div class="absolute -left-4 top-8" style="animation: fade-in-up 0.8s ease 0.5s both">
+          <div class="card-glass rounded-xl px-4 py-3" style="min-width:120px">
+            <div style="color:#22C55E;font-size:10px;font-weight:600;margin-bottom:2px">↑ New leads</div>
+            <div style="font-family:'Syne',sans-serif;font-size:22px;font-weight:800;color:white">+42%</div>
+            <div style="color:rgba(255,255,255,0.4);font-size:9px">Since launch</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES SECTION -->
+<section id="services" class="py-24 relative" style="background:var(--dark2)">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-16 animate-on-scroll">
+      <div class="section-label mb-3">What We Build</div>
+      <h2 class="text-4xl lg:text-5xl font-bold mb-5" style="letter-spacing:-0.02em">Everything your business<br>needs to win online</h2>
+      <p class="text-slate-400 max-w-xl mx-auto text-lg">From first impression to final conversion — we cover every piece of your digital presence.</p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      <!-- Service Cards -->
+      <div class="card-glass rounded-2xl p-6 animate-on-scroll">
+        <div class="service-icon mb-4" style="background:rgba(59,130,246,0.1);border:1px solid rgba(59,130,246,0.2)">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+        </div>
+        <h3 class="font-bold text-lg mb-2 text-white" style="font-family:'Syne',sans-serif">Custom Website Design</h3>
+        <p class="text-slate-400 text-sm leading-relaxed">Bespoke designs crafted to reflect your brand identity and captivate your target audience.</p>
+      </div>
+
+      <div class="card-glass rounded-2xl p-6 animate-on-scroll">
+        <div class="service-icon mb-4" style="background:rgba(110,231,183,0.1);border:1px solid rgba(110,231,183,0.2)">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6EE7B7" stroke-width="1.5"><rect x="5" y="2" width="14" height="20" rx="3"/><path d="M12 17h.01"/></svg>
+        </div>
+        <h3 class="font-bold text-lg mb-2 text-white" style="font-family:'Syne',sans-serif">Mobile Responsive Dev</h3>
+        <p class="text-slate-400 text-sm leading-relaxed">Pixel-perfect across all screen sizes. 60%+ of your traffic is mobile — we make sure it converts.</p>
+      </div>
+
+      <div class="card-glass rounded-2xl p-6 animate-on-scroll">
+        <div class="service-icon mb-4" style="background:rgba(167,139,250,0.1);border:1px solid rgba(167,139,250,0.2)">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#A78BFA" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35M11 8v3l2 2"/></svg>
+        </div>
+        <h3 class="font-bold text-lg mb-2 text-white" style="font-family:'Syne',sans-serif">SEO Optimization</h3>
+        <p class="text-slate-400 text-sm leading-relaxed">Rank higher on Google and get found by local customers actively searching for your services.</p>
+      </div>
+
+      <div class="card-glass rounded-2xl p-6 animate-on-scroll">
+        <div class="service-icon mb-4" style="background:rgba(245,158,11,0.1);border:1px solid rgba(245,158,11,0.2)">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="1.5"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>
+        </div>
+        <h3 class="font-bold text-lg mb-2 text-white" style="font-family:'Syne',sans-serif">Online Booking & Leads</h3>
+        <p class="text-slate-400 text-sm leading-relaxed">Integrated booking systems and lead capture forms that work 24/7, even while you sleep.</p>
+      </div>
+
+      <div class="card-glass rounded-2xl p-6 animate-on-scroll">
+        <div class="service-icon mb-4" style="background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.2)">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        </div>
+        <h3 class="font-bold text-lg mb-2 text-white" style="font-family:'Syne',sans-serif">Branding & Logo Design</h3>
+        <p class="text-slate-400 text-sm leading-relaxed">Complete visual identity packages that make your business instantly recognizable and trustworthy.</p>
+      </div>
+
+      <div class="card-glass rounded-2xl p-6 animate-on-scroll">
+        <div class="service-icon mb-4" style="background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.2)">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3 class="font-bold text-lg mb-2 text-white" style="font-family:'Syne',sans-serif">Website Maintenance</h3>
+        <p class="text-slate-400 text-sm leading-relaxed">Ongoing updates, security patches, and content changes so you never worry about your site again.</p>
+      </div>
+
+      <div class="card-glass rounded-2xl p-6 animate-on-scroll">
+        <div class="service-icon mb-4" style="background:rgba(99,102,241,0.1);border:1px solid rgba(99,102,241,0.2)">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#818CF8" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><path d="M7 10h2l2 4 2-7 2 3h2"/></svg>
+        </div>
+        <h3 class="font-bold text-lg mb-2 text-white" style="font-family:'Syne',sans-serif">E-Commerce Development</h3>
+        <p class="text-slate-400 text-sm leading-relaxed">Full online store setups with secure checkout, inventory management, and beautiful product pages.</p>
+      </div>
+
+      <div class="card-glass rounded-2xl p-6 animate-on-scroll">
+        <div class="service-icon mb-4" style="background:rgba(236,72,153,0.1);border:1px solid rgba(236,72,153,0.2)">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#EC4899" stroke-width="1.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        </div>
+        <h3 class="font-bold text-lg mb-2 text-white" style="font-family:'Syne',sans-serif">Speed Optimization</h3>
+        <p class="text-slate-400 text-sm leading-relaxed">Lightning-fast load times that keep visitors engaged and boost your Google ranking significantly.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY CHOOSE US — Stats -->
+<section class="py-20" style="background:#080C14">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="text-center animate-on-scroll">
+        <div class="stat-number text-5xl font-extrabold gradient-text mb-2">50+</div>
+        <div class="text-slate-400 text-sm">Websites Built</div>
+      </div>
+      <div class="text-center animate-on-scroll">
+        <div class="stat-number text-5xl font-extrabold gradient-text mb-2">98%</div>
+        <div class="text-slate-400 text-sm">Client Satisfaction</div>
+      </div>
+      <div class="text-center animate-on-scroll">
+        <div class="stat-number text-5xl font-extrabold gradient-text mb-2">3×</div>
+        <div class="text-slate-400 text-sm">Avg. Lead Growth</div>
+      </div>
+      <div class="text-center animate-on-scroll">
+        <div class="stat-number text-5xl font-extrabold gradient-text mb-2">7d</div>
+        <div class="text-slate-400 text-sm">Avg. Turnaround</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="work" class="py-24 relative" style="background:var(--dark2)">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-16 animate-on-scroll">
+      <div class="section-label mb-3">Portfolio</div>
+      <h2 class="text-4xl lg:text-5xl font-bold mb-5" style="letter-spacing:-0.02em">Real businesses, real results</h2>
+      <p class="text-slate-400 max-w-xl mx-auto text-lg">Every site we build drives measurable growth. Here's a sample of what we've delivered.</p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <!-- Portfolio Card 1 -->
+      <div class="card-glass rounded-2xl overflow-hidden group animate-on-scroll portfolio-card">
+        <div class="relative overflow-hidden" style="height:200px;background:linear-gradient(135deg,#1a0a00,#2d1a00)">
+          <div class="absolute inset-0 flex flex-col justify-end p-6">
+            <div style="width:40px;height:40px;border-radius:8px;background:linear-gradient(135deg,#D97706,#F59E0B);display:flex;align-items:center;justify-content:center;margin-bottom:10px">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 2c1 2 4 3 7 2-1 4-4 7-7 8C7 11 4 8 3 4c3 1 6 0 7-2z" stroke="white" stroke-width="1.5" fill="rgba(255,255,255,0.2)"/></svg>
+            </div>
+            <div style="font-family:'Syne',sans-serif;font-size:18px;font-weight:800;color:white">Bella Vista</div>
+            <div style="color:#D97706;font-size:11px;font-weight:600;letter-spacing:0.1em">ITALIAN RESTAURANT</div>
+          </div>
+          <div class="portfolio-overlay absolute inset-0 flex items-center justify-center" style="background:rgba(0,0,0,0.75)">
+            <a href="#contact" class="btn-primary px-6 py-2.5 rounded-lg text-sm">View Details</a>
+          </div>
+        </div>
+        <div class="p-5">
+          <p class="text-slate-400 text-sm mb-4 leading-relaxed">Fine dining Italian restaurant needed a site that matched their upscale atmosphere and allowed online reservations.</p>
+          <div class="flex gap-3">
+            <span class="metric-badge">+42% leads</span>
+            <span class="metric-badge">+65% bookings</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Portfolio Card 2 -->
+      <div class="card-glass rounded-2xl overflow-hidden group animate-on-scroll portfolio-card">
+        <div class="relative overflow-hidden" style="height:200px;background:linear-gradient(135deg,#001a0a,#003d1a)">
+          <div class="absolute inset-0 flex flex-col justify-end p-6">
+            <div style="width:40px;height:40px;border-radius:8px;background:linear-gradient(135deg,#059669,#22C55E);display:flex;align-items:center;justify-content:center;margin-bottom:10px">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 16s1-5 5-5 5 5 5 5" stroke="white" stroke-width="1.5" stroke-linecap="round"/><path d="M6 8c0-2 2-4 4-4s4 2 4 4" stroke="white" stroke-width="1.5"/></svg>
+            </div>
+            <div style="font-family:'Syne',sans-serif;font-size:18px;font-weight:800;color:white">Peak Performance</div>
+            <div style="color:#22C55E;font-size:11px;font-weight:600;letter-spacing:0.1em">FITNESS GYM</div>
+          </div>
+          <div class="portfolio-overlay absolute inset-0 flex items-center justify-center" style="background:rgba(0,0,0,0.75)">
+            <a href="#contact" class="btn-primary px-6 py-2.5 rounded-lg text-sm">View Details</a>
+          </div>
+        </div>
+        <div class="p-5">
+          <p class="text-slate-400 text-sm mb-4 leading-relaxed">High-energy gym brand needed member acquisition, class schedules, and a powerful first impression.</p>
+          <div class="flex gap-3">
+            <span class="metric-badge">+58% signups</span>
+            <span class="metric-badge">+31% conv.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Portfolio Card 3 -->
+      <div class="card-glass rounded-2xl overflow-hidden group animate-on-scroll portfolio-card">
+        <div class="relative overflow-hidden" style="height:200px;background:linear-gradient(135deg,#1a0028,#2d0050)">
+          <div class="absolute inset-0 flex flex-col justify-end p-6">
+            <div style="width:40px;height:40px;border-radius:8px;background:linear-gradient(135deg,#7C3AED,#A78BFA);display:flex;align-items:center;justify-content:center;margin-bottom:10px">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 3c-1 2-4 3-4 6s3 5 4 8c1-3 4-5 4-8s-3-4-4-6z" stroke="white" stroke-width="1.5" fill="rgba(255,255,255,0.2)"/></svg>
+            </div>
+            <div style="font-family:'Syne',sans-serif;font-size:18px;font-weight:800;color:white">Luxe Hair Studio</div>
+            <div style="color:#A78BFA;font-size:11px;font-weight:600;letter-spacing:0.1em">SALON & SPA</div>
+          </div>
+          <div class="portfolio-overlay absolute inset-0 flex items-center justify-center" style="background:rgba(0,0,0,0.75)">
+            <a href="#contact" class="btn-primary px-6 py-2.5 rounded-lg text-sm">View Details</a>
+          </div>
+        </div>
+        <div class="p-5">
+          <p class="text-slate-400 text-sm mb-4 leading-relaxed">Luxury salon wanted an elegant website with online booking that matched their premium, boutique experience.</p>
+          <div class="flex gap-3">
+            <span class="metric-badge">+73% bookings</span>
+            <span class="metric-badge">+44% revenue</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Portfolio Card 4 -->
+      <div class="card-glass rounded-2xl overflow-hidden group animate-on-scroll portfolio-card">
+        <div class="relative overflow-hidden" style="height:200px;background:linear-gradient(135deg,#0a1a00,#1a3300)">
+          <div class="absolute inset-0 flex flex-col justify-end p-6">
+            <div style="width:40px;height:40px;border-radius:8px;background:linear-gradient(135deg,#16a34a,#84cc16);display:flex;align-items:center;justify-content:center;margin-bottom:10px">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 18V8M5 18v-6M15 18v-4M3 18h14" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </div>
+            <div style="font-family:'Syne',sans-serif;font-size:18px;font-weight:800;color:white">GreenLeaf Co.</div>
+            <div style="color:#86efac;font-size:11px;font-weight:600;letter-spacing:0.1em">LANDSCAPING</div>
+          </div>
+          <div class="portfolio-overlay absolute inset-0 flex items-center justify-center" style="background:rgba(0,0,0,0.75)">
+            <a href="#contact" class="btn-primary px-6 py-2.5 rounded-lg text-sm">View Details</a>
+          </div>
+        </div>
+        <div class="p-5">
+          <p class="text-slate-400 text-sm mb-4 leading-relaxed">Local landscaping company needed local SEO dominance and a quote request system to beat competitors.</p>
+          <div class="flex gap-3">
+            <span class="metric-badge">+89% calls</span>
+            <span class="metric-badge">+52% quotes</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Portfolio Card 5 -->
+      <div class="card-glass rounded-2xl overflow-hidden group animate-on-scroll portfolio-card">
+        <div class="relative overflow-hidden" style="height:200px;background:linear-gradient(135deg,#001528,#002d50)">
+          <div class="absolute inset-0 flex flex-col justify-end p-6">
+            <div style="width:40px;height:40px;border-radius:8px;background:linear-gradient(135deg,#0ea5e9,#38bdf8);display:flex;align-items:center;justify-content:center;margin-bottom:10px">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 6a4 4 0 100 8 4 4 0 000-8z" stroke="white" stroke-width="1.5"/><path d="M3 10h1M16 10h1M10 3v1M10 16v1" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </div>
+            <div style="font-family:'Syne',sans-serif;font-size:18px;font-weight:800;color:white">Harbor Dental</div>
+            <div style="color:#7dd3fc;font-size:11px;font-weight:600;letter-spacing:0.1em">DENTAL GROUP</div>
+          </div>
+          <div class="portfolio-overlay absolute inset-0 flex items-center justify-center" style="background:rgba(0,0,0,0.75)">
+            <a href="#contact" class="btn-primary px-6 py-2.5 rounded-lg text-sm">View Details</a>
+          </div>
+        </div>
+        <div class="p-5">
+          <p class="text-slate-400 text-sm mb-4 leading-relaxed">Multi-location dental practice needed a trustworthy, clean site that drives appointment bookings online.</p>
+          <div class="flex gap-3">
+            <span class="metric-badge">+61% appts</span>
+            <span class="metric-badge">+38% patients</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Portfolio Card 6 -->
+      <div class="card-glass rounded-2xl overflow-hidden group animate-on-scroll portfolio-card">
+        <div class="relative overflow-hidden" style="height:200px;background:linear-gradient(135deg,#1a1000,#2d1f00)">
+          <div class="absolute inset-0 flex flex-col justify-end p-6">
+            <div style="width:40px;height:40px;border-radius:8px;background:linear-gradient(135deg,#B45309,#F59E0B);display:flex;align-items:center;justify-content:center;margin-bottom:10px">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3 17L8 7l4 6 3-4 5 8H3z" stroke="white" stroke-width="1.5" fill="rgba(255,255,255,0.15)"/></svg>
+            </div>
+            <div style="font-family:'Syne',sans-serif;font-size:18px;font-weight:800;color:white">Summit Realty</div>
+            <div style="color:#fcd34d;font-size:11px;font-weight:600;letter-spacing:0.1em">REAL ESTATE</div>
+          </div>
+          <div class="portfolio-overlay absolute inset-0 flex items-center justify-center" style="background:rgba(0,0,0,0.75)">
+            <a href="#contact" class="btn-primary px-6 py-2.5 rounded-lg text-sm">View Details</a>
+          </div>
+        </div>
+        <div class="p-5">
+          <p class="text-slate-400 text-sm mb-4 leading-relaxed">Real estate team needed property listings, lead capture, and a brand presence that positions them as market leaders.</p>
+          <div class="flex gap-3">
+            <span class="metric-badge">+95% leads</span>
+            <span class="metric-badge">+47% showings</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="py-24 overflow-hidden" style="background:#080C14">
+  <div class="max-w-7xl mx-auto px-6 mb-12">
+    <div class="text-center animate-on-scroll">
+      <div class="section-label mb-3">Testimonials</div>
+      <h2 class="text-4xl lg:text-5xl font-bold mb-5" style="letter-spacing:-0.02em">Our clients love us</h2>
+      <p class="text-slate-400 max-w-xl mx-auto text-lg">Don't take our word for it — here's what business owners say after working with us.</p>
+    </div>
+  </div>
+
+  <div class="relative overflow-hidden" style="mask-image:linear-gradient(90deg,transparent,black 10%,black 90%,transparent)">
+    <div class="carousel-track" style="width:max-content">
+      <!-- Testimonial 1 -->
+      <div class="testimonial-card card-glass rounded-2xl p-6" style="width:320px;flex-shrink:0">
+        <div class="flex gap-1 mb-4"><span class="star">★★★★★</span></div>
+        <p class="text-slate-300 text-sm leading-relaxed mb-5">"Our new website completely changed our business. We now get multiple leads every week online — something that never happened before. Clearsite delivered beyond expectations."</p>
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold" style="background:linear-gradient(135deg,#7C3AED,#A78BFA);color:white;font-family:'Syne',sans-serif">SM</div>
+          <div>
+            <div class="text-white font-semibold text-sm" style="font-family:'Syne',sans-serif">Sarah Mitchell</div>
+            <div class="text-slate-500 text-xs">Luxe Hair Studio</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonial 2 -->
+      <div class="testimonial-card card-glass rounded-2xl p-6" style="width:320px;flex-shrink:0">
+        <div class="flex gap-1 mb-4"><span class="star">★★★★★</span></div>
+        <p class="text-slate-300 text-sm leading-relaxed mb-5">"Within 3 weeks of launching our new site, our phone was ringing off the hook. Best investment we've made for the restaurant. The design perfectly captures our vibe."</p>
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold" style="background:linear-gradient(135deg,#D97706,#F59E0B);color:white;font-family:'Syne',sans-serif">MR</div>
+          <div>
+            <div class="text-white font-semibold text-sm" style="font-family:'Syne',sans-serif">Marco Rosetti</div>
+            <div class="text-slate-500 text-xs">Bella Vista Restaurant</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonial 3 -->
+      <div class="testimonial-card card-glass rounded-2xl p-6" style="width:320px;flex-shrink:0">
+        <div class="flex gap-1 mb-4"><span class="star">★★★★★</span></div>
+        <p class="text-slate-300 text-sm leading-relaxed mb-5">"We used to rely purely on word of mouth. After Clearsite built our website, we started getting new members discovering us on Google every week. The ROI has been incredible."</p>
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold" style="background:linear-gradient(135deg,#059669,#22C55E);color:white;font-family:'Syne',sans-serif">JK</div>
+          <div>
+            <div class="text-white font-semibold text-sm" style="font-family:'Syne',sans-serif">Jake Kowalski</div>
+            <div class="text-slate-500 text-xs">Peak Performance Gym</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonial 4 -->
+      <div class="testimonial-card card-glass rounded-2xl p-6" style="width:320px;flex-shrink:0">
+        <div class="flex gap-1 mb-4"><span class="star">★★★★★</span></div>
+        <p class="text-slate-300 text-sm leading-relaxed mb-5">"Professional, fast, and genuinely talented. They understood our brand immediately and built something we're truly proud to show clients. Our listing requests doubled in 2 months."</p>
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold" style="background:linear-gradient(135deg,#B45309,#F59E0B);color:white;font-family:'Syne',sans-serif">AT</div>
+          <div>
+            <div class="text-white font-semibold text-sm" style="font-family:'Syne',sans-serif">Amanda Torres</div>
+            <div class="text-slate-500 text-xs">Summit Realty</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonial 5 -->
+      <div class="testimonial-card card-glass rounded-2xl p-6" style="width:320px;flex-shrink:0">
+        <div class="flex gap-1 mb-4"><span class="star">★★★★★</span></div>
+        <p class="text-slate-300 text-sm leading-relaxed mb-5">"I was skeptical at first — but the results speak for themselves. Our online appointment bookings went up 61% in the first month. The team is responsive and truly cares."</p>
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold" style="background:linear-gradient(135deg,#0ea5e9,#38bdf8);color:white;font-family:'Syne',sans-serif">DN</div>
+          <div>
+            <div class="text-white font-semibold text-sm" style="font-family:'Syne',sans-serif">Dr. Nina Patel</div>
+            <div class="text-slate-500 text-xs">Harbor Dental Group</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonial 6 -->
+      <div class="testimonial-card card-glass rounded-2xl p-6" style="width:320px;flex-shrink:0">
+        <div class="flex gap-1 mb-4"><span class="star">★★★★★</span></div>
+        <p class="text-slate-300 text-sm leading-relaxed mb-5">"We've tried two other agencies before. Clearsite is in a completely different league. The attention to detail, the quality of design, and the actual business results are unmatched."</p>
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold" style="background:linear-gradient(135deg,#16a34a,#84cc16);color:white;font-family:'Syne',sans-serif">BH</div>
+          <div>
+            <div class="text-white font-semibold text-sm" style="font-family:'Syne',sans-serif">Ben Hartley</div>
+            <div class="text-slate-500 text-xs">GreenLeaf Landscaping</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonial 7 -->
+      <div class="testimonial-card card-glass rounded-2xl p-6" style="width:320px;flex-shrink:0">
+        <div class="flex gap-1 mb-4"><span class="star">★★★★★</span></div>
+        <p class="text-slate-300 text-sm leading-relaxed mb-5">"As a law firm, credibility is everything. The site they built for us communicates professionalism instantly. New client inquiries from the web have tripled since launch."</p>
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold" style="background:linear-gradient(135deg,#374151,#6B7280);color:white;font-family:'Syne',sans-serif">RC</div>
+          <div>
+            <div class="text-white font-semibold text-sm" style="font-family:'Syne',sans-serif">Richard Chen, Esq.</div>
+            <div class="text-slate-500 text-xs">Chen & Associates Law</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonial 8 -->
+      <div class="testimonial-card card-glass rounded-2xl p-6" style="width:320px;flex-shrink:0">
+        <div class="flex gap-1 mb-4"><span class="star">★★★★★</span></div>
+        <p class="text-slate-300 text-sm leading-relaxed mb-5">"I can't believe I waited so long to get a proper website. Clearsite made the process painless and the result is stunning. Our customers constantly compliment how slick it looks."</p>
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold" style="background:linear-gradient(135deg,#EC4899,#F472B6);color:white;font-family:'Syne',sans-serif">LP</div>
+          <div>
+            <div class="text-white font-semibold text-sm" style="font-family:'Syne',sans-serif">Lisa Park</div>
+            <div class="text-slate-500 text-xs">Park Dental Wellness</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Duplicate for seamless loop -->
+      <div class="testimonial-card card-glass rounded-2xl p-6" style="width:320px;flex-shrink:0">
+        <div class="flex gap-1 mb-4"><span class="star">★★★★★</span></div>
+        <p class="text-slate-300 text-sm leading-relaxed mb-5">"Our new website completely changed our business. We now get multiple leads every week online — something that never happened before. Clearsite delivered beyond expectations."</p>
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold" style="background:linear-gradient(135deg,#7C3AED,#A78BFA);color:white;font-family:'Syne',sans-serif">SM</div>
+          <div>
+            <div class="text-white font-semibold text-sm" style="font-family:'Syne',sans-serif">Sarah Mitchell</div>
+            <div class="text-slate-500 text-xs">Luxe Hair Studio</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card card-glass rounded-2xl p-6" style="width:320px;flex-shrink:0">
+        <div class="flex gap-1 mb-4"><span class="star">★★★★★</span></div>
+        <p class="text-slate-300 text-sm leading-relaxed mb-5">"Within 3 weeks of launching our new site, our phone was ringing off the hook. Best investment we've made for the restaurant. The design perfectly captures our vibe."</p>
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold" style="background:linear-gradient(135deg,#D97706,#F59E0B);color:white;font-family:'Syne',sans-serif">MR</div>
+          <div>
+            <div class="text-white font-semibold text-sm" style="font-family:'Syne',sans-serif">Marco Rosetti</div>
+            <div class="text-slate-500 text-xs">Bella Vista Restaurant</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card card-glass rounded-2xl p-6" style="width:320px;flex-shrink:0">
+        <div class="flex gap-1 mb-4"><span class="star">★★★★★</span></div>
+        <p class="text-slate-300 text-sm leading-relaxed mb-5">"We used to rely purely on word of mouth. After Clearsite built our website, we started getting new members discovering us on Google every week. The ROI has been incredible."</p>
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold" style="background:linear-gradient(135deg,#059669,#22C55E);color:white;font-family:'Syne',sans-serif">JK</div>
+          <div>
+            <div class="text-white font-semibold text-sm" style="font-family:'Syne',sans-serif">Jake Kowalski</div>
+            <div class="text-slate-500 text-xs">Peak Performance Gym</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card card-glass rounded-2xl p-6" style="width:320px;flex-shrink:0">
+        <div class="flex gap-1 mb-4"><span class="star">★★★★★</span></div>
+        <p class="text-slate-300 text-sm leading-relaxed mb-5">"Professional, fast, and genuinely talented. They understood our brand immediately and built something we're truly proud to show clients. Our listing requests doubled in 2 months."</p>
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold" style="background:linear-gradient(135deg,#B45309,#F59E0B);color:white;font-family:'Syne',sans-serif">AT</div>
+          <div>
+            <div class="text-white font-semibold text-sm" style="font-family:'Syne',sans-serif">Amanda Torres</div>
+            <div class="text-slate-500 text-xs">Summit Realty</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing" class="py-24" style="background:var(--dark2)">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-16 animate-on-scroll">
+      <div class="section-label mb-3">Pricing</div>
+      <h2 class="text-4xl lg:text-5xl font-bold mb-5" style="letter-spacing:-0.02em">Simple, transparent pricing</h2>
+      <p class="text-slate-400 max-w-xl mx-auto text-lg">No hidden fees. No surprises. Just world-class websites at prices that make sense for local businesses.</p>
+    </div>
+
+    <div class="grid lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+
+      <!-- Starter -->
+      <div class="card-glass rounded-2xl p-8 animate-on-scroll">
+        <div class="mb-6">
+          <div class="text-sm font-semibold text-slate-400 mb-1" style="font-family:'Syne',sans-serif;letter-spacing:0.1em">STARTER</div>
+          <div class="flex items-end gap-1 mb-2">
+            <span class="text-4xl font-extrabold text-white" style="font-family:'Syne',sans-serif">$699</span>
+            <span class="text-slate-500 pb-1">one-time</span>
+          </div>
+          <p class="text-slate-400 text-sm">Perfect for new businesses that need a strong online presence fast.</p>
+        </div>
+        <div class="space-y-3 mb-8">
+          <div class="flex items-center gap-3 text-sm">
+            <div class="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0" style="background:rgba(110,231,183,0.15)"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#6EE7B7" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+            <span class="text-slate-300">5-page custom website</span>
+          </div>
+          <div class="flex items-center gap-3 text-sm">
+            <div class="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0" style="background:rgba(110,231,183,0.15)"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#6EE7B7" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+            <span class="text-slate-300">Mobile responsive design</span>
+          </div>
+          <div class="flex items-center gap-3 text-sm">
+            <div class="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0" style="background:rgba(110,231,183,0.15)"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#6EE7B7" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+            <span class="text-slate-300">Basic SEO setup</span>
+          </div>
+          <div class="flex items-center gap-3 text-sm">
+            <div class="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0" style="background:rgba(110,231,183,0.15)"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#6EE7B7" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+            <span class="text-slate-300">Contact form & lead capture</span>
+          </div>
+          <div class="flex items-center gap-3 text-sm">
+            <div class="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0" style="background:rgba(110,231,183,0.15)"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#6EE7B7" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+            <span class="text-slate-300">Google Analytics setup</span>
+          </div>
+          <div class="flex items-center gap-3 text-sm">
+            <div class="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0" style="background:rgba(110,231,183,0.15)"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#6EE7B7" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+            <span class="text-slate-300">1-week delivery</span>
+          </div>
+          <div class="flex items-center gap-3 text-sm opacity-40">
+            <div class="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0" style="background:rgba(255,255,255,0.08)"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M3 7l4-4M7 7L3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+            <span class="text-slate-400">Online booking system</span>
+          </div>
+          <div class="flex items-center gap-3 text-sm opacity-40">
+            <div class="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0" style="background:rgba(255,255,255,0.08)"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M3 7l4-4M7 7L3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+            <span class="text-slate-400">E-commerce</span>
+          </div>
+        </div>
+        <a href="#contact" class="btn-outline w-full py-3 rounded-xl text-sm text-center block">Get Started</a>
+      </div>
+
+      <!-- Growth — Featured -->
+      <div class="price-card-featured rounded-2xl p-8 animate-on-scroll relative">
+        <div class="absolute -top-3 left-1/2 -translate-x-1/2">
+          <div class="px-4 py-1 rounded-full text-xs font-bold" style="background:linear-gradient(90deg,#6EE7B7,#3B82F6);color:#080C14;font-family:'Syne',sans-serif">MOST POPULAR</div>
+        </div>
+        <div class="mb-6">
+          <div class="text-sm font-semibold mb-1" style="font-family:'Syne',sans-serif;letter-spacing:0.1em;color:#6EE7B7">GROWTH</div>
+          <div class="flex items-end gap-1 mb-2">
+            <span class="text-4xl font-extrabold text-white" style="font-family:'Syne',sans-serif">$1,499</span>
+            <span class="text-slate-500 pb-1">one-time</span>
+          </div>
+          <p class="text-slate-400 text-sm">For established businesses ready to dominate their local market online.</p>
+        </div>
+        <div class="space-y-3 mb-8">
+          <div class="flex items-center gap-3 text-sm">
+            <div class="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0" style="background:rgba(110,231,183,0.2)"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#6EE7B7" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+            <span class="text-slate-200">10-page custom website</span>
+          </div>
+          <div class="flex items-center gap-3 text-sm">
+            <div class="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0" style="background:rgba(110,231,183,0.2)"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#6EE7B7" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+            <span class="text-slate-200">Advanced SEO optimization</span>
+          </div>
+          <div class="flex items-center gap-3 text-sm">
+            <div class="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0" style="background:rgba(110,231,183,0.2)"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#6EE7B7" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+            <span class="text-slate-200">Online booking system</span>
+          </div>
+          <div class="flex items-center gap-3 text-sm">
+            <div class="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0" style="background:rgba(110,231,183,0.2)"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#6EE7B7" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+            <span class="text-slate-200">Logo & branding kit</span>
+          </div>
+          <div class="flex items-center gap-3 text-sm">
+            <div class="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0" style="background:rgba(110,231,183,0.2)"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#6EE7B7" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+            <span class="text-slate-200">Speed optimization</span>
+          </div>
+          <div class="flex items-center gap-3 text-sm">
+            <div class="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0" style="background:rgba(110,231,183,0.2)"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#6EE7B7" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+            <span class="text-slate-200">3 months free maintenance</span>
+          </div>
+          <div class="flex items-center gap-3 text-sm">
+            <div class="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0" style="background:rgba(110,231,183,0.2)"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#6EE7B7" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+            <span class="text-slate-200">Hosting setup & domain</span>
+          </div>
+          <div class="flex items-center gap-3 text-sm opacity-40">
+            <div class="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0" style="background:rgba(255,255,255,0.08)"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M3 7l4-4M7 7L3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+            <span class="text-slate-400">E-commerce store</span>
+          </div>
+        </div>
+        <a href="#contact" class="btn-primary w-full py-3 rounded-xl text-sm text-center block">Get Started</a>
+      </div>
+
+      <!-- Premium -->
+      <div class="card-glass rounded-2xl p-8 animate-on-scroll">
+        <div class="mb-6">
+          <div class="text-sm font-semibold text-slate-400 mb-1" style="font-family:'Syne',sans-serif;letter-spacing:0.1em">PREMIUM</div>
+          <div class="flex items-end gap-1 mb-2">
+            <span class="text-4xl font-extrabold text-white" style="font-family:'Syne',sans-serif">$2,999</span>
+            <span class="text-slate-500 pb-1">one-time</span>
+          </div>
+          <p class="text-slate-400 text-sm">Full digital transformation for businesses ready to compete at the highest level.</p>
+        </div>
+        <div class="space-y-3 mb-8">
+          <div class="flex items-center gap-3 text-sm">
+            <div class="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0" style="background:rgba(110,231,183,0.15)"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#6EE7B7" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+            <span class="text-slate-300">Unlimited pages</span>
+          </div>
+          <div class="flex items-center gap-3 text-sm">
+            <div class="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0" style="background:rgba(110,231,183,0.15)"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#6EE7B7" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+            <span class="text-slate-300">E-commerce store setup</span>
+          </div>
+          <div class="flex items-center gap-3 text-sm">
+            <div class="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0" style="background:rgba(110,231,183,0.15)"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#6EE7B7" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+            <span class="text-slate-300">Full branding package</span>
+          </div>
+          <div class="flex items-center gap-3 text-sm">
+            <div class="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0" style="background:rgba(110,231,183,0.15)"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#6EE7B7" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+            <span class="text-slate-300">Advanced SEO + local dominance</span>
+          </div>
+          <div class="flex items-center gap-3 text-sm">
+            <div class="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0" style="background:rgba(110,231,183,0.15)"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#6EE7B7" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+            <span class="text-slate-300">Custom integrations & CRM</span>
+          </div>
+          <div class="flex items-center gap-3 text-sm">
+            <div class="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0" style="background:rgba(110,231,183,0.15)"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#6EE7B7" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+            <span class="text-slate-300">12 months free maintenance</span>
+          </div>
+          <div class="flex items-center gap-3 text-sm">
+            <div class="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0" style="background:rgba(110,231,183,0.15)"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#6EE7B7" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+            <span class="text-slate-300">Priority 24/7 support</span>
+          </div>
+          <div class="flex items-center gap-3 text-sm">
+            <div class="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0" style="background:rgba(110,231,183,0.15)"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#6EE7B7" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+            <span class="text-slate-300">Dedicated account manager</span>
+          </div>
+        </div>
+        <a href="#contact" class="btn-outline w-full py-3 rounded-xl text-sm text-center block">Get Started</a>
+      </div>
+
+    </div>
+    <p class="text-center text-slate-500 text-sm mt-8">All plans include free consultation. Not sure which plan is right? <a href="#contact" class="text-green-400 hover:text-green-300">Let's talk.</a></p>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process" class="py-24" style="background:#080C14">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-16 animate-on-scroll">
+      <div class="section-label mb-3">How It Works</div>
+      <h2 class="text-4xl lg:text-5xl font-bold mb-5" style="letter-spacing:-0.02em">From concept to launch<br>in 4 simple steps</h2>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="animate-on-scroll">
+        <div class="card-glass rounded-2xl p-7 relative">
+          <div class="text-6xl font-extrabold mb-5 gradient-text opacity-30" style="font-family:'Syne',sans-serif;line-height:1">01</div>
+          <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style="background:rgba(59,130,246,0.1);border:1px solid rgba(59,130,246,0.2)">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="1.5"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-3" style="font-family:'Syne',sans-serif">Discovery</h3>
+          <p class="text-slate-400 text-sm leading-relaxed">We learn your business, goals, competitors, and target audience. Deep dive call included.</p>
+        </div>
+      </div>
+
+      <div class="animate-on-scroll">
+        <div class="card-glass rounded-2xl p-7">
+          <div class="text-6xl font-extrabold mb-5 gradient-text opacity-30" style="font-family:'Syne',sans-serif;line-height:1">02</div>
+          <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style="background:rgba(110,231,183,0.1);border:1px solid rgba(110,231,183,0.2)">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6EE7B7" stroke-width="1.5"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-3" style="font-family:'Syne',sans-serif">Design</h3>
+          <p class="text-slate-400 text-sm leading-relaxed">We craft your custom mockups and present them for your approval. Revisions included until perfect.</p>
+        </div>
+      </div>
+
+      <div class="animate-on-scroll">
+        <div class="card-glass rounded-2xl p-7">
+          <div class="text-6xl font-extrabold mb-5 gradient-text opacity-30" style="font-family:'Syne',sans-serif;line-height:1">03</div>
+          <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style="background:rgba(167,139,250,0.1);border:1px solid rgba(167,139,250,0.2)">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#A78BFA" stroke-width="1.5"><path d="M16 18l2 2 4-4M10 14l-4 4m0 0l-2-2m2 2V12m0 6H4m6-6l4-4m0 0l2 2m-2-2V4m0 6h6"/></svg>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-3" style="font-family:'Syne',sans-serif">Build</h3>
+          <p class="text-slate-400 text-sm leading-relaxed">Our developers bring the design to life with clean code, integrations, and thorough testing.</p>
+        </div>
+      </div>
+
+      <div class="animate-on-scroll">
+        <div class="card-glass rounded-2xl p-7">
+          <div class="text-6xl font-extrabold mb-5 gradient-text opacity-30" style="font-family:'Syne',sans-serif;line-height:1">04</div>
+          <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style="background:rgba(245,158,11,0.1);border:1px solid rgba(245,158,11,0.2)">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="1.5"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-3" style="font-family:'Syne',sans-serif">Launch</h3>
+          <p class="text-slate-400 text-sm leading-relaxed">We deploy your site, set up analytics, and hand over everything with a complete walkthrough.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="py-24" style="background:var(--dark2)">
+  <div class="max-w-3xl mx-auto px-6">
+    <div class="text-center mb-16 animate-on-scroll">
+      <div class="section-label mb-3">FAQ</div>
+      <h2 class="text-4xl lg:text-5xl font-bold mb-5" style="letter-spacing:-0.02em">Questions? We've got answers.</h2>
+    </div>
+
+    <div class="space-y-1 animate-on-scroll">
+      <div class="faq-item py-5">
+        <button class="w-full flex justify-between items-center text-left gap-4 faq-btn">
+          <span class="font-semibold text-white text-lg" style="font-family:'Syne',sans-serif">How much does a website cost?</span>
+          <div class="faq-toggle flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1)">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 1v12M1 7h12"/></svg>
+          </div>
+        </button>
+        <div class="faq-answer pt-3">
+          <p class="text-slate-400 leading-relaxed">Our packages start at $699 for a 5-page Starter site and go up to $2,999 for our full Premium package with e-commerce. We offer flexible payment plans and financing options. Every quote is customized to your specific needs — reach out for a free estimate.</p>
+        </div>
+      </div>
+
+      <div class="faq-item py-5">
+        <button class="w-full flex justify-between items-center text-left gap-4 faq-btn">
+          <span class="font-semibold text-white text-lg" style="font-family:'Syne',sans-serif">How long does it take to build?</span>
+          <div class="faq-toggle flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1)">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 1v12M1 7h12"/></svg>
+          </div>
+        </button>
+        <div class="faq-answer pt-3">
+          <p class="text-slate-400 leading-relaxed">Most websites are completed within 1–2 weeks from start to finish. Starter sites often launch in as little as 5 days. Premium and e-commerce projects may take 2–3 weeks. We work fast without sacrificing quality, and we keep you updated throughout.</p>
+        </div>
+      </div>
+
+      <div class="faq-item py-5">
+        <button class="w-full flex justify-between items-center text-left gap-4 faq-btn">
+          <span class="font-semibold text-white text-lg" style="font-family:'Syne',sans-serif">Do you offer hosting?</span>
+          <div class="faq-toggle flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1)">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 1v12M1 7h12"/></svg>
+          </div>
+        </button>
+        <div class="faq-answer pt-3">
+          <p class="text-slate-400 leading-relaxed">Yes! We handle everything — hosting setup, domain connection, SSL security certificates, and ongoing maintenance. Our managed hosting plans start at $49/month and include uptime monitoring, daily backups, and priority support. We can also deploy to your existing hosting if preferred.</p>
+        </div>
+      </div>
+
+      <div class="faq-item py-5">
+        <button class="w-full flex justify-between items-center text-left gap-4 faq-btn">
+          <span class="font-semibold text-white text-lg" style="font-family:'Syne',sans-serif">Can you redesign my existing website?</span>
+          <div class="faq-toggle flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1)">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 1v12M1 7h12"/></svg>
+          </div>
+        </button>
+        <div class="faq-answer pt-3">
+          <p class="text-slate-400 leading-relaxed">Absolutely — redesigns are one of our most popular services. We analyze your existing site, understand what's working and what isn't, and transform it into something that truly performs. We preserve your SEO rankings and content while giving you a complete visual and functional upgrade.</p>
+        </div>
+      </div>
+
+      <div class="faq-item py-5">
+        <button class="w-full flex justify-between items-center text-left gap-4 faq-btn">
+          <span class="font-semibold text-white text-lg" style="font-family:'Syne',sans-serif">Is SEO included in my website?</span>
+          <div class="faq-toggle flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1)">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 1v12M1 7h12"/></svg>
+          </div>
+        </button>
+        <div class="faq-answer pt-3">
+          <p class="text-slate-400 leading-relaxed">All websites include foundational SEO: proper meta tags, structured data, fast load times, and Google Search Console setup. Growth and Premium plans include advanced local SEO, keyword targeting, and Google Business Profile optimization. Ongoing SEO campaigns are available as an add-on service.</p>
+        </div>
+      </div>
+
+      <div class="faq-item py-5">
+        <button class="w-full flex justify-between items-center text-left gap-4 faq-btn">
+          <span class="font-semibold text-white text-lg" style="font-family:'Syne',sans-serif">Do you offer ongoing support?</span>
+          <div class="faq-toggle flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1)">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 1v12M1 7h12"/></svg>
+          </div>
+        </button>
+        <div class="faq-answer pt-3">
+          <p class="text-slate-400 leading-relaxed">Yes — we offer flexible maintenance plans starting at $99/month. This covers content updates, security patches, plugin/software updates, uptime monitoring, and priority support. We're long-term partners, not just one-time developers. Most of our clients stay with us for years.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="py-24 relative overflow-hidden" style="background:#080C14">
+  <div class="absolute inset-0" style="background:radial-gradient(ellipse 70% 50% at 50% 50%,rgba(59,130,246,0.07),transparent)"></div>
+  <div class="max-w-5xl mx-auto px-6 relative z-10">
+    <div class="grid lg:grid-cols-2 gap-16 items-start">
+      <!-- Left -->
+      <div class="animate-on-scroll">
+        <div class="section-label mb-4">Contact Us</div>
+        <h2 class="text-4xl lg:text-5xl font-bold mb-6" style="letter-spacing:-0.02em">Let's build something<br><span class="gradient-text">great together</span></h2>
+        <p class="text-slate-400 text-lg leading-relaxed mb-10">Tell us about your business and we'll put together a custom proposal at no cost. First consultation is always free.</p>
+
+        <div class="space-y-6">
+          <div class="flex items-center gap-4">
+            <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background:rgba(110,231,183,0.1);border:1px solid rgba(110,231,183,0.2)">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#6EE7B7" stroke-width="1.4"><path d="M3 3h12v10H3zM3 13l6 3 6-3"/></svg>
+            </div>
+            <div>
+              <div class="text-white font-semibold text-sm">Email us</div>
+              <div class="text-slate-400 text-sm">hello@clearsite.co</div>
+            </div>
+          </div>
+          <div class="flex items-center gap-4">
+            <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background:rgba(110,231,183,0.1);border:1px solid rgba(110,231,183,0.2)">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#6EE7B7" stroke-width="1.4"><path d="M16 12.5c0 .3-.1.6-.2.9-.2.3-.4.6-.7.8-.5.5-1 .7-1.6.7-.4 0-.9-.1-1.4-.3s-.9-.4-1.4-.7c-.5-.3-.9-.6-1.3-1L7.6 11c-.4-.4-.7-.9-1-1.3-.3-.4-.5-.9-.7-1.4C5.7 7.9 5.6 7.4 5.6 7c0-.5.2-1 .7-1.5.4-.4.9-.6 1.4-.6.2 0 .4 0 .6.1.2.1.4.2.5.4l1.8 2.5c.1.2.2.4.3.5.1.2.1.3.1.5 0 .2 0 .3-.1.5-.1.2-.2.3-.3.4L9.9 10c-.1.1-.1.2-.1.3 0 .1 0 .1.1.2l.1.2c.3.4.5.8.9 1.1.4.4.7.7 1.1.9l.2.1c.1 0 .2.1.3.1.2 0 .3-.1.4-.2l.6-.7c.1-.2.3-.2.4-.2.1 0 .3 0 .5.1.2.1.4.2.5.3l2.5 1.8c.2.1.4.3.4.5z"/></svg>
+            </div>
+            <div>
+              <div class="text-white font-semibold text-sm">Call us</div>
+              <div class="text-slate-400 text-sm">(555) 012-3456</div>
+            </div>
+          </div>
+          <div class="flex items-center gap-4">
+            <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background:rgba(110,231,183,0.1);border:1px solid rgba(110,231,183,0.2)">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#6EE7B7" stroke-width="1.4"><circle cx="9" cy="8" r="3"/><path d="M9 2C5.7 2 3 4.7 3 8c0 4.5 6 10 6 10s6-5.5 6-10c0-3.3-2.7-6-6-6z"/></svg>
+            </div>
+            <div>
+              <div class="text-white font-semibold text-sm">Location</div>
+              <div class="text-slate-400 text-sm">Based in the US — serving clients nationwide</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Form -->
+      <div class="animate-on-scroll">
+        <div class="card-glass rounded-2xl p-8">
+          <form id="contactForm" class="space-y-5">
+            <div class="grid sm:grid-cols-2 gap-5">
+              <div>
+                <label class="block text-sm font-medium text-slate-300 mb-2">Your Name</label>
+                <input type="text" placeholder="John Smith" class="w-full px-4 py-3 rounded-xl text-sm">
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-slate-300 mb-2">Business Name</label>
+                <input type="text" placeholder="Smith's Pizza" class="w-full px-4 py-3 rounded-xl text-sm">
+              </div>
+            </div>
+            <div class="grid sm:grid-cols-2 gap-5">
+              <div>
+                <label class="block text-sm font-medium text-slate-300 mb-2">Email Address</label>
+                <input type="email" placeholder="john@smithspizza.com" class="w-full px-4 py-3 rounded-xl text-sm">
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-slate-300 mb-2">Phone Number</label>
+                <input type="tel" placeholder="(555) 000-0000" class="w-full px-4 py-3 rounded-xl text-sm">
+              </div>
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-slate-300 mb-2">Budget Range</label>
+              <select class="w-full px-4 py-3 rounded-xl text-sm">
+                <option value="" style="color:rgba(255,255,255,0.25)">Select your budget</option>
+                <option>Under $800</option>
+                <option>$800 – $1,800</option>
+                <option>$1,800 – $3,500</option>
+                <option>$3,500+</option>
+                <option>Not sure yet</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-slate-300 mb-2">Tell us about your project</label>
+              <textarea rows="4" placeholder="What does your business do? What do you need? Any specific goals or features in mind?" class="w-full px-4 py-3 rounded-xl text-sm resize-none"></textarea>
+            </div>
+            <button type="submit" class="btn-primary w-full py-4 rounded-xl text-base font-bold flex items-center justify-center gap-2">
+              Send My Free Quote Request
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3.5 9h11M9.5 4l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </button>
+            <p class="text-xs text-slate-500 text-center">We typically respond within 24 hours. No spam, ever.</p>
+          </form>
+          <div id="formSuccess" class="hidden text-center py-8">
+            <div class="w-16 h-16 rounded-full mx-auto mb-4 flex items-center justify-center" style="background:rgba(110,231,183,0.15);border:2px solid rgba(110,231,183,0.4)">
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="#6EE7B7" stroke-width="2"><path d="M5 14l6 6 12-12" stroke-linecap="round"/></svg>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2" style="font-family:'Syne',sans-serif">Message Sent!</h3>
+            <p class="text-slate-400">We'll review your project and reach out within 24 hours with a free custom quote.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer style="background:#04070e;border-top:1px solid rgba(255,255,255,0.05)">
+  <div class="max-w-7xl mx-auto px-6 py-16">
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+      <!-- Brand -->
+      <div class="lg:col-span-1">
+        <a href="#" class="flex items-center gap-2 mb-5">
+          <div class="w-8 h-8 rounded-lg flex items-center justify-center" style="background:linear-gradient(135deg,#6EE7B7,#3B82F6)">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="2" y="2" width="5" height="5" rx="1" fill="#080C14"/><rect x="9" y="2" width="5" height="5" rx="1" fill="#080C14" opacity="0.6"/><rect x="2" y="9" width="5" height="5" rx="1" fill="#080C14" opacity="0.6"/><rect x="9" y="9" width="5" height="5" rx="1" fill="#080C14"/></svg>
+          </div>
+          <span class="font-bold text-lg text-white" style="font-family:'Syne',sans-serif">Clear<span class="gradient-text">site</span></span>
+        </a>
+        <p class="text-slate-500 text-sm leading-relaxed mb-6">Modern websites for local businesses that want to get more customers and look credible online.</p>
+        <div class="flex gap-3">
+          <a href="#" class="w-9 h-9 rounded-lg flex items-center justify-center transition-all hover:bg-slate-800" style="border:1px solid rgba(255,255,255,0.08)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="text-slate-500"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg>
+          </a>
+          <a href="#" class="w-9 h-9 rounded-lg flex items-center justify-center transition-all hover:bg-slate-800" style="border:1px solid rgba(255,255,255,0.08)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="text-slate-500"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><path d="M17.5 6.5h.01"/></svg>
+          </a>
+          <a href="#" class="w-9 h-9 rounded-lg flex items-center justify-center transition-all hover:bg-slate-800" style="border:1px solid rgba(255,255,255,0.08)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="text-slate-500"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <a href="#" class="w-9 h-9 rounded-lg flex items-center justify-center transition-all hover:bg-slate-800" style="border:1px solid rgba(255,255,255,0.08)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="text-slate-500"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Services -->
+      <div>
+        <h4 class="font-bold text-white mb-5 text-sm" style="font-family:'Syne',sans-serif;letter-spacing:0.05em">SERVICES</h4>
+        <ul class="space-y-3">
+          <li><a href="#services" class="text-slate-500 text-sm hover:text-slate-300 transition-colors">Custom Website Design</a></li>
+          <li><a href="#services" class="text-slate-500 text-sm hover:text-slate-300 transition-colors">Mobile Development</a></li>
+          <li><a href="#services" class="text-slate-500 text-sm hover:text-slate-300 transition-colors">SEO Optimization</a></li>
+          <li><a href="#services" class="text-slate-500 text-sm hover:text-slate-300 transition-colors">E-Commerce Stores</a></li>
+          <li><a href="#services" class="text-slate-500 text-sm hover:text-slate-300 transition-colors">Branding & Logos</a></li>
+          <li><a href="#services" class="text-slate-500 text-sm hover:text-slate-300 transition-colors">Website Maintenance</a></li>
+        </ul>
+      </div>
+
+      <!-- Company -->
+      <div>
+        <h4 class="font-bold text-white mb-5 text-sm" style="font-family:'Syne',sans-serif;letter-spacing:0.05em">COMPANY</h4>
+        <ul class="space-y-3">
+          <li><a href="#work" class="text-slate-500 text-sm hover:text-slate-300 transition-colors">Our Work</a></li>
+          <li><a href="#process" class="text-slate-500 text-sm hover:text-slate-300 transition-colors">Our Process</a></li>
+          <li><a href="#pricing" class="text-slate-500 text-sm hover:text-slate-300 transition-colors">Pricing</a></li>
+          <li><a href="#faq" class="text-slate-500 text-sm hover:text-slate-300 transition-colors">FAQ</a></li>
+          <li><a href="#contact" class="text-slate-500 text-sm hover:text-slate-300 transition-colors">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div>
+        <h4 class="font-bold text-white mb-5 text-sm" style="font-family:'Syne',sans-serif;letter-spacing:0.05em">GET IN TOUCH</h4>
+        <ul class="space-y-3">
+          <li class="text-slate-500 text-sm">hello@clearsite.co</li>
+          <li class="text-slate-500 text-sm">(555) 012-3456</li>
+          <li class="text-slate-500 text-sm">United States (Remote)</li>
+        </ul>
+        <a href="#contact" class="btn-primary mt-6 px-5 py-2.5 rounded-lg text-sm inline-block">Free Consultation</a>
+      </div>
+    </div>
+
+    <div class="border-t flex flex-col sm:flex-row justify-between items-center gap-4 pt-8" style="border-color:rgba(255,255,255,0.05)">
+      <p class="text-slate-600 text-sm">© 2026 Clearsite. All rights reserved.</p>
+      <div class="flex gap-6">
+        <a href="#" class="text-slate-600 text-sm hover:text-slate-400 transition-colors">Privacy Policy</a>
+        <a href="#" class="text-slate-600 text-sm hover:text-slate-400 transition-colors">Terms of Service</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Scroll Progress
+  window.addEventListener('scroll', () => {
+    const pct = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+    document.getElementById('scrollProgress').style.width = pct + '%';
+  });
+
+  // Navbar scroll effect
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 60) {
+      navbar.style.background = 'rgba(8,12,20,0.95)';
+      navbar.style.backdropFilter = 'blur(20px)';
+      navbar.style.borderBottom = '1px solid rgba(255,255,255,0.06)';
+    } else {
+      navbar.style.background = 'transparent';
+      navbar.style.backdropFilter = 'none';
+      navbar.style.borderBottom = 'none';
+    }
+  });
+
+  // Mobile menu
+  document.getElementById('mobileMenuBtn').addEventListener('click', () => {
+    const menu = document.getElementById('mobileMenu');
+    menu.classList.toggle('open');
+  });
+  document.querySelectorAll('#mobileMenu a').forEach(a => {
+    a.addEventListener('click', () => document.getElementById('mobileMenu').classList.remove('open'));
+  });
+
+  // Scroll animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item');
+      const answer = item.querySelector('.faq-answer');
+      const toggle = item.querySelector('.faq-toggle');
+      const isOpen = answer.classList.contains('open');
+      document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('open'));
+      document.querySelectorAll('.faq-toggle').forEach(t => t.classList.remove('open'));
+      if (!isOpen) { answer.classList.add('open'); toggle.classList.add('open'); }
+    });
+  });
+
+  // Contact form
+  document.getElementById('contactForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    document.getElementById('contactForm').style.display = 'none';
+    document.getElementById('formSuccess').classList.remove('hidden');
+  });
+</script>
+</body>
+</html>
