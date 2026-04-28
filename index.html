@@ -291,14 +291,14 @@
       </div>
 
       <!-- Right: Laptop Mockup -->
-      <div class="relative flex justify-center lg:justify-end float-anim">
+      <div class="relative flex justify-center float-anim" style="overflow:visible">
         <!-- Main Laptop -->
         <div class="relative" style="perspective:1200px">
           <div class="relative" style="transform:rotateY(-8deg) rotateX(4deg);transform-style:preserve-3d">
             <!-- Laptop body -->
             <div class="rounded-2xl p-2 pulse-anim" style="background:linear-gradient(145deg,#1e293b,#0f172a);border:1px solid rgba(255,255,255,0.12);box-shadow:0 40px 80px rgba(0,0,0,0.6)">
               <!-- Screen -->
-              <div class="laptop-screen w-[360px] lg:w-[440px]">
+              <div class="laptop-screen w-[300px] sm:w-[360px] lg:w-[440px]">
                 <!-- Browser chrome -->
                 <div class="flex items-center gap-2 px-4 py-2" style="background:#1a2332;border-bottom:1px solid rgba(255,255,255,0.06)">
                   <div class="flex gap-1.5">
@@ -338,8 +338,8 @@
           </div>
         </div>
 
-        <!-- Floating phone mockup -->
-        <div class="absolute -right-6 -bottom-8 float-anim-delay" style="transform:rotateY(6deg)">
+        <!-- Floating phone mockup — hidden on mobile -->
+        <div class="hidden sm:block absolute -right-6 -bottom-8 float-anim-delay" style="transform:rotateY(6deg)">
           <div class="rounded-2xl p-1.5" style="background:linear-gradient(145deg,#1e293b,#0f172a);border:1px solid rgba(255,255,255,0.12);width:100px;box-shadow:0 20px 40px rgba(0,0,0,0.5)">
             <div class="rounded-xl overflow-hidden">
               <div class="h-1.5 w-8 mx-auto my-1 rounded-full" style="background:rgba(255,255,255,0.1)"></div>
@@ -353,8 +353,8 @@
           </div>
         </div>
 
-        <!-- Floating stat badge -->
-        <div class="absolute -left-4 top-8" style="animation: fade-in-up 0.8s ease 0.5s both">
+        <!-- Floating stat badge — hidden on mobile -->
+        <div class="hidden lg:block absolute -left-4 top-8" style="animation: fade-in-up 0.8s ease 0.5s both">
           <div class="card-glass rounded-xl px-4 py-3" style="min-width:120px">
             <div style="color:#22C55E;font-size:10px;font-weight:600;margin-bottom:2px">↑ New leads</div>
             <div style="font-family:'Syne',sans-serif;font-size:22px;font-weight:800;color:white">+42%</div>
