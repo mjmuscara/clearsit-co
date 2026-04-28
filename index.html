@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Clearsite — Modern Websites for Local Businesses</title>
 <script src="https://cdn.tailwindcss.com"></script>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><defs><linearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'><stop offset='0%25' stop-color='%236EE7B7'/><stop offset='100%25' stop-color='%233B82F6'/></linearGradient></defs><rect width='32' height='32' rx='8' fill='url(%23g)'/><rect x='6' y='6' width='8' height='8' rx='2' fill='%23080C14'/><rect x='18' y='6' width='8' height='8' rx='2' fill='%23080C14' opacity='0.6'/><rect x='6' y='18' width='8' height='8' rx='2' fill='%23080C14' opacity='0.6'/><rect x='18' y='18' width='8' height='8' rx='2' fill='%23080C14'/></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
 <style>
@@ -480,13 +481,47 @@
 
       <!-- Portfolio Card 1 -->
       <div class="card-glass rounded-2xl overflow-hidden group animate-on-scroll portfolio-card">
-        <div class="relative overflow-hidden" style="height:200px;background:linear-gradient(135deg,#1a0a00,#2d1a00)">
-          <div class="absolute inset-0 flex flex-col justify-end p-6">
-            <div style="width:40px;height:40px;border-radius:8px;background:linear-gradient(135deg,#D97706,#F59E0B);display:flex;align-items:center;justify-content:center;margin-bottom:10px">
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 2c1 2 4 3 7 2-1 4-4 7-7 8C7 11 4 8 3 4c3 1 6 0 7-2z" stroke="white" stroke-width="1.5" fill="rgba(255,255,255,0.2)"/></svg>
+        <div class="relative overflow-hidden" style="height:220px;">
+          <!-- Fake website mockup: Bella Vista Restaurant -->
+          <div style="position:absolute;inset:0;font-family:'DM Sans',sans-serif;overflow:hidden;">
+            <!-- Nav -->
+            <div style="background:#12100e;padding:6px 14px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,0.06)">
+              <span style="color:#D97706;font-family:'Syne',sans-serif;font-size:9px;font-weight:800;letter-spacing:0.1em">BELLA VISTA</span>
+              <div style="display:flex;gap:8px">
+                <span style="color:rgba(255,255,255,0.4);font-size:7px">Menu</span>
+                <span style="color:rgba(255,255,255,0.4);font-size:7px">About</span>
+                <span style="color:#D97706;font-size:7px;background:rgba(217,119,6,0.15);padding:2px 6px;border-radius:3px">Reserve</span>
+              </div>
             </div>
-            <div style="font-family:'Syne',sans-serif;font-size:18px;font-weight:800;color:white">Bella Vista</div>
-            <div style="color:#D97706;font-size:11px;font-weight:600;letter-spacing:0.1em">ITALIAN RESTAURANT</div>
+            <!-- Hero -->
+            <div style="background:linear-gradient(160deg,#1a0800,#3d1a00);padding:14px;position:relative;height:110px;display:flex;flex-direction:column;justify-content:center">
+              <div style="position:absolute;right:14px;top:50%;transform:translateY(-50%);opacity:0.15">
+                <svg width="60" height="60" viewBox="0 0 60 60" fill="none"><circle cx="30" cy="30" r="28" stroke="#F59E0B" stroke-width="1"/><circle cx="30" cy="30" r="18" stroke="#F59E0B" stroke-width="0.5"/></svg>
+              </div>
+              <div style="color:#D97706;font-size:7px;letter-spacing:0.2em;margin-bottom:4px">FINE ITALIAN DINING</div>
+              <div style="font-family:'Syne',sans-serif;font-size:16px;font-weight:800;color:white;line-height:1.1;margin-bottom:6px">Bella Vista<br><span style="color:#F59E0B">Restaurant</span></div>
+              <div style="display:flex;gap:6px">
+                <div style="background:#D97706;color:white;padding:4px 10px;border-radius:4px;font-size:7px;font-weight:700">Book a Table</div>
+                <div style="border:1px solid rgba(255,255,255,0.2);color:rgba(255,255,255,0.7);padding:4px 10px;border-radius:4px;font-size:7px">View Menu</div>
+              </div>
+            </div>
+            <!-- Feature row -->
+            <div style="background:#1c1208;padding:8px 14px;display:flex;gap:10px">
+              <div style="flex:1;text-align:center">
+                <div style="color:#F59E0B;font-size:11px;font-weight:700">★★★★★</div>
+                <div style="color:rgba(255,255,255,0.4);font-size:6px">4.9 Rating</div>
+              </div>
+              <div style="width:1px;background:rgba(255,255,255,0.06)"></div>
+              <div style="flex:1;text-align:center">
+                <div style="color:white;font-size:9px;font-weight:700">Open Daily</div>
+                <div style="color:rgba(255,255,255,0.4);font-size:6px">5pm – 11pm</div>
+              </div>
+              <div style="width:1px;background:rgba(255,255,255,0.06)"></div>
+              <div style="flex:1;text-align:center">
+                <div style="color:white;font-size:9px;font-weight:700">Downtown</div>
+                <div style="color:rgba(255,255,255,0.4);font-size:6px">123 Main St</div>
+              </div>
+            </div>
           </div>
           <div class="portfolio-overlay absolute inset-0 flex items-center justify-center" style="background:rgba(0,0,0,0.75)">
             <a href="#contact" class="btn-primary px-6 py-2.5 rounded-lg text-sm">View Details</a>
@@ -503,13 +538,39 @@
 
       <!-- Portfolio Card 2 -->
       <div class="card-glass rounded-2xl overflow-hidden group animate-on-scroll portfolio-card">
-        <div class="relative overflow-hidden" style="height:200px;background:linear-gradient(135deg,#001a0a,#003d1a)">
-          <div class="absolute inset-0 flex flex-col justify-end p-6">
-            <div style="width:40px;height:40px;border-radius:8px;background:linear-gradient(135deg,#059669,#22C55E);display:flex;align-items:center;justify-content:center;margin-bottom:10px">
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 16s1-5 5-5 5 5 5 5" stroke="white" stroke-width="1.5" stroke-linecap="round"/><path d="M6 8c0-2 2-4 4-4s4 2 4 4" stroke="white" stroke-width="1.5"/></svg>
+        <div class="relative overflow-hidden" style="height:220px;">
+          <!-- Fake website mockup: Peak Performance Gym -->
+          <div style="position:absolute;inset:0;font-family:'DM Sans',sans-serif;overflow:hidden;">
+            <!-- Nav -->
+            <div style="background:#050f08;padding:6px 14px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,0.06)">
+              <span style="color:#22C55E;font-family:'Syne',sans-serif;font-size:9px;font-weight:800;letter-spacing:0.08em">PEAK PERFORMANCE</span>
+              <div style="background:#22C55E;color:#050f08;padding:2px 8px;border-radius:3px;font-size:7px;font-weight:700">Join Now</div>
             </div>
-            <div style="font-family:'Syne',sans-serif;font-size:18px;font-weight:800;color:white">Peak Performance</div>
-            <div style="color:#22C55E;font-size:11px;font-weight:600;letter-spacing:0.1em">FITNESS GYM</div>
+            <!-- Hero -->
+            <div style="background:linear-gradient(160deg,#020d05,#04200a);padding:14px;height:120px;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden">
+              <div style="position:absolute;right:-10px;top:-10px;width:80px;height:80px;border-radius:50%;background:rgba(34,197,94,0.05)"></div>
+              <div style="color:#22C55E;font-size:7px;letter-spacing:0.2em;margin-bottom:4px;font-weight:600">TRAIN HARDER. GET RESULTS.</div>
+              <div style="font-family:'Syne',sans-serif;font-size:15px;font-weight:800;color:white;line-height:1.1;margin-bottom:8px">Peak Performance<br><span style="color:#22C55E">Gym & Fitness</span></div>
+              <div style="display:flex;gap:6px;align-items:center">
+                <div style="background:#22C55E;color:#050f08;padding:4px 10px;border-radius:4px;font-size:7px;font-weight:800">Free Trial Class</div>
+                <div style="color:rgba(255,255,255,0.5);font-size:7px">View Schedule →</div>
+              </div>
+            </div>
+            <!-- Stats bar -->
+            <div style="background:#071a0c;padding:8px 14px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;border-top:1px solid rgba(34,197,94,0.1)">
+              <div style="text-align:center">
+                <div style="color:#22C55E;font-family:'Syne',sans-serif;font-size:12px;font-weight:800">500+</div>
+                <div style="color:rgba(255,255,255,0.35);font-size:6px">Members</div>
+              </div>
+              <div style="text-align:center;border-left:1px solid rgba(255,255,255,0.06);border-right:1px solid rgba(255,255,255,0.06)">
+                <div style="color:#22C55E;font-family:'Syne',sans-serif;font-size:12px;font-weight:800">20+</div>
+                <div style="color:rgba(255,255,255,0.35);font-size:6px">Classes/Week</div>
+              </div>
+              <div style="text-align:center">
+                <div style="color:#22C55E;font-family:'Syne',sans-serif;font-size:12px;font-weight:800">$39</div>
+                <div style="color:rgba(255,255,255,0.35);font-size:6px">Per Month</div>
+              </div>
+            </div>
           </div>
           <div class="portfolio-overlay absolute inset-0 flex items-center justify-center" style="background:rgba(0,0,0,0.75)">
             <a href="#contact" class="btn-primary px-6 py-2.5 rounded-lg text-sm">View Details</a>
@@ -526,13 +587,45 @@
 
       <!-- Portfolio Card 3 -->
       <div class="card-glass rounded-2xl overflow-hidden group animate-on-scroll portfolio-card">
-        <div class="relative overflow-hidden" style="height:200px;background:linear-gradient(135deg,#1a0028,#2d0050)">
-          <div class="absolute inset-0 flex flex-col justify-end p-6">
-            <div style="width:40px;height:40px;border-radius:8px;background:linear-gradient(135deg,#7C3AED,#A78BFA);display:flex;align-items:center;justify-content:center;margin-bottom:10px">
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 3c-1 2-4 3-4 6s3 5 4 8c1-3 4-5 4-8s-3-4-4-6z" stroke="white" stroke-width="1.5" fill="rgba(255,255,255,0.2)"/></svg>
+        <div class="relative overflow-hidden" style="height:220px;">
+          <!-- Fake website mockup: Luxe Hair Studio -->
+          <div style="position:absolute;inset:0;font-family:'DM Sans',sans-serif;overflow:hidden;background:#0e0715">
+            <!-- Nav -->
+            <div style="background:#0a0510;padding:6px 14px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(167,139,250,0.1)">
+              <span style="color:white;font-family:'Syne',sans-serif;font-size:9px;font-weight:800;letter-spacing:0.15em">LUXE<span style="color:#A78BFA"> HAIR</span></span>
+              <div style="display:flex;gap:8px;align-items:center">
+                <span style="color:rgba(255,255,255,0.35);font-size:7px">Services</span>
+                <span style="color:rgba(255,255,255,0.35);font-size:7px">Gallery</span>
+                <div style="background:linear-gradient(135deg,#7C3AED,#A78BFA);color:white;padding:2px 8px;border-radius:3px;font-size:7px;font-weight:600">Book Now</div>
+              </div>
             </div>
-            <div style="font-family:'Syne',sans-serif;font-size:18px;font-weight:800;color:white">Luxe Hair Studio</div>
-            <div style="color:#A78BFA;font-size:11px;font-weight:600;letter-spacing:0.1em">SALON & SPA</div>
+            <!-- Hero -->
+            <div style="padding:14px;height:118px;display:flex;flex-direction:column;justify-content:center;background:linear-gradient(135deg,#0a0518,#160a2e)">
+              <div style="display:flex;gap:4px;margin-bottom:6px">
+                <div style="width:20px;height:2px;background:#A78BFA;border-radius:1px"></div>
+                <div style="width:10px;height:2px;background:rgba(167,139,250,0.3);border-radius:1px"></div>
+              </div>
+              <div style="color:rgba(255,255,255,0.45);font-size:7px;letter-spacing:0.2em;margin-bottom:5px">PREMIUM HAIR STUDIO</div>
+              <div style="font-family:'Syne',sans-serif;font-size:16px;font-weight:800;color:white;line-height:1.15;margin-bottom:8px">Luxe Hair<br><span style="color:#A78BFA">Studio</span></div>
+              <div style="display:flex;gap:6px">
+                <div style="background:linear-gradient(90deg,#7C3AED,#A78BFA);color:white;padding:4px 10px;border-radius:4px;font-size:7px;font-weight:700">Book Appointment</div>
+              </div>
+            </div>
+            <!-- Services strip -->
+            <div style="background:#120820;padding:8px 14px;display:flex;gap:6px;border-top:1px solid rgba(167,139,250,0.08)">
+              <div style="flex:1;background:rgba(167,139,250,0.08);border-radius:4px;padding:5px 6px;text-align:center">
+                <div style="color:white;font-size:7px;font-weight:600">Color</div>
+              </div>
+              <div style="flex:1;background:rgba(167,139,250,0.08);border-radius:4px;padding:5px 6px;text-align:center">
+                <div style="color:white;font-size:7px;font-weight:600">Cut & Style</div>
+              </div>
+              <div style="flex:1;background:rgba(167,139,250,0.08);border-radius:4px;padding:5px 6px;text-align:center">
+                <div style="color:white;font-size:7px;font-weight:600">Balayage</div>
+              </div>
+              <div style="flex:1;background:rgba(167,139,250,0.08);border-radius:4px;padding:5px 6px;text-align:center">
+                <div style="color:white;font-size:7px;font-weight:600">Extensions</div>
+              </div>
+            </div>
           </div>
           <div class="portfolio-overlay absolute inset-0 flex items-center justify-center" style="background:rgba(0,0,0,0.75)">
             <a href="#contact" class="btn-primary px-6 py-2.5 rounded-lg text-sm">View Details</a>
@@ -549,13 +642,37 @@
 
       <!-- Portfolio Card 4 -->
       <div class="card-glass rounded-2xl overflow-hidden group animate-on-scroll portfolio-card">
-        <div class="relative overflow-hidden" style="height:200px;background:linear-gradient(135deg,#0a1a00,#1a3300)">
-          <div class="absolute inset-0 flex flex-col justify-end p-6">
-            <div style="width:40px;height:40px;border-radius:8px;background:linear-gradient(135deg,#16a34a,#84cc16);display:flex;align-items:center;justify-content:center;margin-bottom:10px">
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 18V8M5 18v-6M15 18v-4M3 18h14" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg>
+        <div class="relative overflow-hidden" style="height:220px;">
+          <!-- Fake website mockup: GreenLeaf Landscaping -->
+          <div style="position:absolute;inset:0;font-family:'DM Sans',sans-serif;overflow:hidden;">
+            <!-- Nav -->
+            <div style="background:#f8faf6;padding:6px 14px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(0,0,0,0.06)">
+              <div style="display:flex;align-items:center;gap:5px">
+                <div style="width:14px;height:14px;border-radius:3px;background:#16a34a;display:flex;align-items:center;justify-content:center">
+                  <svg width="8" height="8" viewBox="0 0 8 8" fill="none"><path d="M4 1C3 2.5 1 3 1 5s1.5 2 3 2 3-1 3-3S5 2.5 4 1z" fill="white"/></svg>
+                </div>
+                <span style="color:#14532d;font-family:'Syne',sans-serif;font-size:8px;font-weight:800">GreenLeaf Co.</span>
+              </div>
+              <div style="background:#16a34a;color:white;padding:2px 8px;border-radius:3px;font-size:7px;font-weight:700">Get a Quote</div>
             </div>
-            <div style="font-family:'Syne',sans-serif;font-size:18px;font-weight:800;color:white">GreenLeaf Co.</div>
-            <div style="color:#86efac;font-size:11px;font-weight:600;letter-spacing:0.1em">LANDSCAPING</div>
+            <!-- Hero -->
+            <div style="background:linear-gradient(135deg,#052e16,#14532d);padding:14px;height:118px;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden">
+              <div style="position:absolute;right:-5px;bottom:-10px;opacity:0.08">
+                <svg width="70" height="70" viewBox="0 0 70 70" fill="none"><circle cx="35" cy="35" r="33" stroke="#86efac" stroke-width="2"/><path d="M35 10C20 25 15 35 35 45c20-10 15-20 0-35z" fill="#86efac"/></svg>
+              </div>
+              <div style="color:#86efac;font-size:7px;letter-spacing:0.15em;margin-bottom:4px;font-weight:600">LANDSCAPING & LAWN CARE</div>
+              <div style="font-family:'Syne',sans-serif;font-size:15px;font-weight:800;color:white;line-height:1.15;margin-bottom:8px">GreenLeaf<br>Landscaping</div>
+              <div style="display:flex;gap:6px">
+                <div style="background:#16a34a;color:white;padding:4px 10px;border-radius:4px;font-size:7px;font-weight:700">Free Estimate</div>
+                <div style="color:rgba(255,255,255,0.55);font-size:7px;display:flex;align-items:center">★★★★★ <span style="margin-left:3px">5.0</span></div>
+              </div>
+            </div>
+            <!-- Services row -->
+            <div style="background:#f0fdf4;padding:8px 14px;display:flex;gap:8px">
+              <div style="color:#15803d;font-size:7px;font-weight:600;display:flex;align-items:center;gap:3px"><span style="color:#16a34a">✓</span> Lawn Mowing</div>
+              <div style="color:#15803d;font-size:7px;font-weight:600;display:flex;align-items:center;gap:3px"><span style="color:#16a34a">✓</span> Garden Design</div>
+              <div style="color:#15803d;font-size:7px;font-weight:600;display:flex;align-items:center;gap:3px"><span style="color:#16a34a">✓</span> Tree Trimming</div>
+            </div>
           </div>
           <div class="portfolio-overlay absolute inset-0 flex items-center justify-center" style="background:rgba(0,0,0,0.75)">
             <a href="#contact" class="btn-primary px-6 py-2.5 rounded-lg text-sm">View Details</a>
@@ -572,13 +689,46 @@
 
       <!-- Portfolio Card 5 -->
       <div class="card-glass rounded-2xl overflow-hidden group animate-on-scroll portfolio-card">
-        <div class="relative overflow-hidden" style="height:200px;background:linear-gradient(135deg,#001528,#002d50)">
-          <div class="absolute inset-0 flex flex-col justify-end p-6">
-            <div style="width:40px;height:40px;border-radius:8px;background:linear-gradient(135deg,#0ea5e9,#38bdf8);display:flex;align-items:center;justify-content:center;margin-bottom:10px">
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 6a4 4 0 100 8 4 4 0 000-8z" stroke="white" stroke-width="1.5"/><path d="M3 10h1M16 10h1M10 3v1M10 16v1" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg>
+        <div class="relative overflow-hidden" style="height:220px;">
+          <!-- Fake website mockup: Harbor Dental -->
+          <div style="position:absolute;inset:0;font-family:'DM Sans',sans-serif;overflow:hidden;background:#f0f7ff">
+            <!-- Nav -->
+            <div style="background:white;padding:6px 14px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(0,0,0,0.06);box-shadow:0 1px 4px rgba(0,0,0,0.04)">
+              <div style="display:flex;align-items:center;gap:5px">
+                <div style="width:16px;height:16px;border-radius:50%;background:linear-gradient(135deg,#0ea5e9,#38bdf8);display:flex;align-items:center;justify-content:center">
+                  <svg width="8" height="8" viewBox="0 0 8 8" fill="none"><path d="M4 1a3 3 0 100 6A3 3 0 004 1zm0 1a2 2 0 110 4A2 2 0 014 2z" fill="white"/></svg>
+                </div>
+                <span style="color:#0c4a6e;font-family:'Syne',sans-serif;font-size:8px;font-weight:800">Harbor Dental Group</span>
+              </div>
+              <div style="background:#0ea5e9;color:white;padding:2px 8px;border-radius:3px;font-size:7px;font-weight:700">Book Appointment</div>
             </div>
-            <div style="font-family:'Syne',sans-serif;font-size:18px;font-weight:800;color:white">Harbor Dental</div>
-            <div style="color:#7dd3fc;font-size:11px;font-weight:600;letter-spacing:0.1em">DENTAL GROUP</div>
+            <!-- Hero -->
+            <div style="background:linear-gradient(135deg,#0c4a6e,#0369a1);padding:14px;height:110px;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden">
+              <div style="position:absolute;right:-20px;top:-20px;width:100px;height:100px;border-radius:50%;background:rgba(255,255,255,0.04)"></div>
+              <div style="color:#7dd3fc;font-size:7px;letter-spacing:0.15em;margin-bottom:4px;font-weight:500">TRUSTED FAMILY DENTISTRY</div>
+              <div style="font-family:'Syne',sans-serif;font-size:15px;font-weight:800;color:white;line-height:1.15;margin-bottom:8px">Harbor Dental<br><span style="color:#38bdf8">Group</span></div>
+              <div style="display:flex;gap:6px">
+                <div style="background:white;color:#0369a1;padding:4px 10px;border-radius:4px;font-size:7px;font-weight:700">New Patient Special</div>
+                <div style="color:rgba(255,255,255,0.55);font-size:7px;display:flex;align-items:center">📍 2 Locations</div>
+              </div>
+            </div>
+            <!-- Trust strip -->
+            <div style="background:white;padding:8px 14px;display:flex;gap:10px;border-top:2px solid #0ea5e9">
+              <div style="flex:1;text-align:center">
+                <div style="color:#0369a1;font-family:'Syne',sans-serif;font-size:10px;font-weight:800">15+</div>
+                <div style="color:#64748b;font-size:6px">Yrs Experience</div>
+              </div>
+              <div style="width:1px;background:#e2e8f0"></div>
+              <div style="flex:1;text-align:center">
+                <div style="color:#0369a1;font-family:'Syne',sans-serif;font-size:10px;font-weight:800">4.9★</div>
+                <div style="color:#64748b;font-size:6px">Google Rating</div>
+              </div>
+              <div style="width:1px;background:#e2e8f0"></div>
+              <div style="flex:1;text-align:center">
+                <div style="color:#0369a1;font-family:'Syne',sans-serif;font-size:10px;font-weight:800">Same Day</div>
+                <div style="color:#64748b;font-size:6px">Appointments</div>
+              </div>
+            </div>
           </div>
           <div class="portfolio-overlay absolute inset-0 flex items-center justify-center" style="background:rgba(0,0,0,0.75)">
             <a href="#contact" class="btn-primary px-6 py-2.5 rounded-lg text-sm">View Details</a>
@@ -595,13 +745,48 @@
 
       <!-- Portfolio Card 6 -->
       <div class="card-glass rounded-2xl overflow-hidden group animate-on-scroll portfolio-card">
-        <div class="relative overflow-hidden" style="height:200px;background:linear-gradient(135deg,#1a1000,#2d1f00)">
-          <div class="absolute inset-0 flex flex-col justify-end p-6">
-            <div style="width:40px;height:40px;border-radius:8px;background:linear-gradient(135deg,#B45309,#F59E0B);display:flex;align-items:center;justify-content:center;margin-bottom:10px">
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3 17L8 7l4 6 3-4 5 8H3z" stroke="white" stroke-width="1.5" fill="rgba(255,255,255,0.15)"/></svg>
+        <div class="relative overflow-hidden" style="height:220px;">
+          <!-- Fake website mockup: Summit Realty -->
+          <div style="position:absolute;inset:0;font-family:'DM Sans',sans-serif;overflow:hidden;">
+            <!-- Nav -->
+            <div style="background:#0a0800;padding:6px 14px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(245,158,11,0.15)">
+              <div style="display:flex;align-items:center;gap:5px">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M1 11L4 5l3 4 2-3 3 5H1z" fill="#F59E0B"/></svg>
+                <span style="color:white;font-family:'Syne',sans-serif;font-size:8px;font-weight:800;letter-spacing:0.08em">SUMMIT <span style="color:#F59E0B">REALTY</span></span>
+              </div>
+              <div style="display:flex;gap:8px">
+                <span style="color:rgba(255,255,255,0.4);font-size:7px">Listings</span>
+                <span style="color:rgba(255,255,255,0.4);font-size:7px">About</span>
+                <div style="background:#F59E0B;color:#0a0800;padding:2px 8px;border-radius:3px;font-size:7px;font-weight:800">Contact</div>
+              </div>
             </div>
-            <div style="font-family:'Syne',sans-serif;font-size:18px;font-weight:800;color:white">Summit Realty</div>
-            <div style="color:#fcd34d;font-size:11px;font-weight:600;letter-spacing:0.1em">REAL ESTATE</div>
+            <!-- Hero -->
+            <div style="background:linear-gradient(160deg,#0a0800,#1c1400);padding:14px;height:112px;display:flex;flex-direction:column;justify-content:center;position:relative">
+              <div style="position:absolute;right:14px;top:50%;transform:translateY(-50%);background:rgba(245,158,11,0.08);border:1px solid rgba(245,158,11,0.15);border-radius:6px;padding:8px;text-align:center">
+                <div style="color:#F59E0B;font-size:14px;font-weight:800;font-family:'Syne',sans-serif">$485K</div>
+                <div style="color:rgba(255,255,255,0.4);font-size:6px">Avg. Sale Price</div>
+              </div>
+              <div style="color:#F59E0B;font-size:7px;letter-spacing:0.2em;margin-bottom:4px;font-weight:500">LUXURY REAL ESTATE</div>
+              <div style="font-family:'Syne',sans-serif;font-size:15px;font-weight:800;color:white;line-height:1.15;margin-bottom:8px">Summit<br>Realty Group</div>
+              <div style="display:flex;gap:6px">
+                <div style="background:#F59E0B;color:#0a0800;padding:4px 10px;border-radius:4px;font-size:7px;font-weight:800">View Listings</div>
+              </div>
+            </div>
+            <!-- Property strip -->
+            <div style="background:#110f00;padding:8px 14px;display:flex;gap:6px;border-top:1px solid rgba(245,158,11,0.1)">
+              <div style="flex:1;background:rgba(245,158,11,0.06);border:1px solid rgba(245,158,11,0.12);border-radius:4px;padding:5px 6px">
+                <div style="color:#fcd34d;font-size:7px;font-weight:700">48 Active</div>
+                <div style="color:rgba(255,255,255,0.3);font-size:6px">Listings</div>
+              </div>
+              <div style="flex:1;background:rgba(245,158,11,0.06);border:1px solid rgba(245,158,11,0.12);border-radius:4px;padding:5px 6px">
+                <div style="color:#fcd34d;font-size:7px;font-weight:700">200+</div>
+                <div style="color:rgba(255,255,255,0.3);font-size:6px">Homes Sold</div>
+              </div>
+              <div style="flex:1;background:rgba(245,158,11,0.06);border:1px solid rgba(245,158,11,0.12);border-radius:4px;padding:5px 6px">
+                <div style="color:#fcd34d;font-size:7px;font-weight:700">Free CMA</div>
+                <div style="color:rgba(255,255,255,0.3);font-size:6px">Home Value</div>
+              </div>
+            </div>
           </div>
           <div class="portfolio-overlay absolute inset-0 flex items-center justify-center" style="background:rgba(0,0,0,0.75)">
             <a href="#contact" class="btn-primary px-6 py-2.5 rounded-lg text-sm">View Details</a>
@@ -845,11 +1030,11 @@
 
       <!-- Growth — Featured -->
       <div class="price-card-featured rounded-2xl p-8 animate-on-scroll relative">
-        <div class="absolute -top-3 left-1/2 -translate-x-1/2">
-          <div class="px-4 py-1 rounded-full text-xs font-bold" style="background:linear-gradient(90deg,#6EE7B7,#3B82F6);color:#080C14;font-family:'Syne',sans-serif">MOST POPULAR</div>
-        </div>
         <div class="mb-6">
-          <div class="text-sm font-semibold mb-1" style="font-family:'Syne',sans-serif;letter-spacing:0.1em;color:#6EE7B7">GROWTH</div>
+          <div class="flex items-center justify-between mb-3">
+            <div class="text-sm font-semibold" style="font-family:'Syne',sans-serif;letter-spacing:0.1em;color:#6EE7B7">GROWTH</div>
+            <div class="px-3 py-1 rounded-full text-xs font-bold" style="background:linear-gradient(90deg,#6EE7B7,#3B82F6);color:#080C14;font-family:'Syne',sans-serif">MOST POPULAR</div>
+          </div>
           <div class="flex items-end gap-1 mb-2">
             <span class="text-4xl font-extrabold text-white" style="font-family:'Syne',sans-serif">$1,499</span>
             <span class="text-slate-500 pb-1">one-time</span>
@@ -1103,16 +1288,7 @@
             </div>
             <div>
               <div class="text-white font-semibold text-sm">Email us</div>
-              <div class="text-slate-400 text-sm">hello@clearsite.co</div>
-            </div>
-          </div>
-          <div class="flex items-center gap-4">
-            <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background:rgba(110,231,183,0.1);border:1px solid rgba(110,231,183,0.2)">
-              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#6EE7B7" stroke-width="1.4"><path d="M16 12.5c0 .3-.1.6-.2.9-.2.3-.4.6-.7.8-.5.5-1 .7-1.6.7-.4 0-.9-.1-1.4-.3s-.9-.4-1.4-.7c-.5-.3-.9-.6-1.3-1L7.6 11c-.4-.4-.7-.9-1-1.3-.3-.4-.5-.9-.7-1.4C5.7 7.9 5.6 7.4 5.6 7c0-.5.2-1 .7-1.5.4-.4.9-.6 1.4-.6.2 0 .4 0 .6.1.2.1.4.2.5.4l1.8 2.5c.1.2.2.4.3.5.1.2.1.3.1.5 0 .2 0 .3-.1.5-.1.2-.2.3-.3.4L9.9 10c-.1.1-.1.2-.1.3 0 .1 0 .1.1.2l.1.2c.3.4.5.8.9 1.1.4.4.7.7 1.1.9l.2.1c.1 0 .2.1.3.1.2 0 .3-.1.4-.2l.6-.7c.1-.2.3-.2.4-.2.1 0 .3 0 .5.1.2.1.4.2.5.3l2.5 1.8c.2.1.4.3.4.5z"/></svg>
-            </div>
-            <div>
-              <div class="text-white font-semibold text-sm">Call us</div>
-              <div class="text-slate-400 text-sm">(555) 012-3456</div>
+              <div class="text-slate-400 text-sm">hello@clearsitelaunch.com</div>
             </div>
           </div>
           <div class="flex items-center gap-4">
@@ -1130,7 +1306,7 @@
       <!-- Right: Form -->
       <div class="animate-on-scroll">
         <div class="card-glass rounded-2xl p-8">
-          <form id="contactForm" class="space-y-5">
+          <form id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="space-y-5">
             <div class="grid sm:grid-cols-2 gap-5">
               <div>
                 <label class="block text-sm font-medium text-slate-300 mb-2">Your Name</label>
@@ -1243,8 +1419,7 @@
       <div>
         <h4 class="font-bold text-white mb-5 text-sm" style="font-family:'Syne',sans-serif;letter-spacing:0.05em">GET IN TOUCH</h4>
         <ul class="space-y-3">
-          <li class="text-slate-500 text-sm">hello@clearsite.co</li>
-          <li class="text-slate-500 text-sm">(555) 012-3456</li>
+          <li class="text-slate-500 text-sm">hello@clearsitelaunch.com</li>
           <li class="text-slate-500 text-sm">United States (Remote)</li>
         </ul>
         <a href="#contact" class="btn-primary mt-6 px-5 py-2.5 rounded-lg text-sm inline-block">Free Consultation</a>
@@ -1314,11 +1489,32 @@
     });
   });
 
-  // Contact form
-  document.getElementById('contactForm').addEventListener('submit', (e) => {
+  // Contact form — Formspree
+  const form = document.getElementById('contactForm');
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
-    document.getElementById('contactForm').style.display = 'none';
-    document.getElementById('formSuccess').classList.remove('hidden');
+    const btn = form.querySelector('button[type="submit"]');
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+      if (res.ok) {
+        form.style.display = 'none';
+        document.getElementById('formSuccess').classList.remove('hidden');
+      } else {
+        btn.textContent = 'Send My Free Quote Request';
+        btn.disabled = false;
+        alert('Something went wrong. Please email us directly at hello@clearsitelaunch.com');
+      }
+    } catch {
+      btn.textContent = 'Send My Free Quote Request';
+      btn.disabled = false;
+      alert('Something went wrong. Please email us directly at hello@clearsitelaunch.com');
+    }
   });
 </script>
 </body>
