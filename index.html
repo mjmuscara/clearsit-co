@@ -1497,20 +1497,27 @@
     btn.textContent = 'Sending...';
     btn.disabled = true;
     try {
-      const res = await fetch(form.action, {
+      const data = Object.fromEntries(new FormData(form));
+      const res = await fetch('https://formspree.io/f/xvzlpqga', {
         method: 'POST',
-        body: new FormData(form),
-        headers: { 'Accept': 'application/json' }
+        body: JSON.stringify(data),
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        }
       });
       if (res.ok) {
         form.style.display = 'none';
         document.getElementById('formSuccess').classList.remove('hidden');
       } else {
+        const json = await res.json();
+        console.error('Formspree error:', json);
         btn.textContent = 'Send My Free Quote Request';
         btn.disabled = false;
         alert('Something went wrong. Please email us directly at hello@clearsitelaunch.com');
       }
-    } catch {
+    } catch(err) {
+      console.error('Submit error:', err);
       btn.textContent = 'Send My Free Quote Request';
       btn.disabled = false;
       alert('Something went wrong. Please email us directly at hello@clearsitelaunch.com');
