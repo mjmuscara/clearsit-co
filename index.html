@@ -210,7 +210,7 @@
 <!-- NAVIGATION -->
 <nav class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" id="navbar">
   <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-    <a href="#" class="flex items-center gap-2">
+    <a href="javascript:void(0)" onclick="window.scrollTo({top:0,behavior:'smooth'});history.replaceState(null,null,window.location.pathname)" class="flex items-center gap-2">
       <div class="w-8 h-8 rounded-lg flex items-center justify-center" style="background: linear-gradient(135deg,#6EE7B7,#3B82F6)">
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="2" y="2" width="5" height="5" rx="1" fill="#080C14"/><rect x="9" y="2" width="5" height="5" rx="1" fill="#080C14" opacity="0.6"/><rect x="2" y="9" width="5" height="5" rx="1" fill="#080C14" opacity="0.6"/><rect x="9" y="9" width="5" height="5" rx="1" fill="#080C14"/></svg>
       </div>
@@ -1306,9 +1306,7 @@
       <!-- Right: Form -->
       <div class="animate-on-scroll">
         <div class="card-glass rounded-2xl p-8">
-          <form action="https://formspree.io/f/xvzlpqga" method="POST" class="space-y-5">
-            <input type="hidden" name="_subject" value="New Quote Request — Clearsite">
-            <input type="hidden" name="_next" value="https://clearsitelaunch.com/thankyou.html">
+          <form id="contactForm" class="space-y-5">
             <div class="grid sm:grid-cols-2 gap-5">
               <div>
                 <label class="block text-sm font-medium text-slate-300 mb-2">Your Name</label>
@@ -1369,7 +1367,7 @@
     <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
       <!-- Brand -->
       <div class="lg:col-span-1">
-        <a href="#" class="flex items-center gap-2 mb-5">
+        <a href="javascript:void(0)" onclick="window.scrollTo({top:0,behavior:'smooth'});history.replaceState(null,null,window.location.pathname)" class="flex items-center gap-2 mb-5">
           <div class="w-8 h-8 rounded-lg flex items-center justify-center" style="background:linear-gradient(135deg,#6EE7B7,#3B82F6)">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="2" y="2" width="5" height="5" rx="1" fill="#080C14"/><rect x="9" y="2" width="5" height="5" rx="1" fill="#080C14" opacity="0.6"/><rect x="2" y="9" width="5" height="5" rx="1" fill="#080C14" opacity="0.6"/><rect x="9" y="9" width="5" height="5" rx="1" fill="#080C14"/></svg>
           </div>
@@ -1504,6 +1502,39 @@
       document.getElementById('mobileMenu').classList.remove('open');
     }
   });
+
+  // Contact form — fetch to Formspree, redirect to custom thank you page
+  const contactForm = document.getElementById('contactForm');
+  if (contactForm) {
+    contactForm.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const btn = contactForm.querySelector('button[type="submit"]');
+      const originalHTML = btn.innerHTML;
+      btn.innerHTML = 'Sending...';
+      btn.disabled = true;
+      const formData = new FormData(contactForm);
+      const data = {};
+      formData.forEach((val, key) => { data[key] = val; });
+      try {
+        const res = await fetch('https://formspree.io/f/xvzlpqga', {
+          method: 'POST',
+          headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+        if (res.ok) {
+          window.location.href = '/thankyou.html';
+        } else {
+          btn.innerHTML = originalHTML;
+          btn.disabled = false;
+          alert('Something went wrong. Please email us directly at hello@clearsitelaunch.com');
+        }
+      } catch(err) {
+        btn.innerHTML = originalHTML;
+        btn.disabled = false;
+        alert('Something went wrong. Please email us directly at hello@clearsitelaunch.com');
+      }
+    });
+  }
 
   // Form submitted via plain HTML POST to Formspree
 </script>
